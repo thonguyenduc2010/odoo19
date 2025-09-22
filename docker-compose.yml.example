@@ -1,0 +1,36 @@
+version: '3'
+services:
+  db:
+    image: postgres:17.6
+    shm_size: 2g
+    command: postgres -c 'max_connections=999'
+    environment:
+      POSTGRES_USER: odoo
+      POSTGRES_PASSWORD: odoo
+      POSTGRES_DB: postgres
+      PGDATA: /data/postgres
+    volumes:
+      - ./pg_data:/data/postgres
+    ports:
+      - "54176:5432"
+    restart: unless-stopped
+    # run as a service
+
+  odoo:
+    image: odoo:19
+    depends_on:
+      - db
+    ports:
+      - "19000:8069"
+      - "19072:8072"
+    tty: true
+    command: -- --dev=reload
+#    command: odoo scaffold /mnt/extra-addons/test_module
+    volumes:
+      #- ./entrypoint.sh:/entrypoint.sh
+      #- ./odoo/addons:/usr/lib/python3/dist-packages/odoo/addons
+      #- ./addons_custom:/mnt/addons_custom
+      - ./etc:/etc/odoo
+      - ./data:/var/lib/odoo
+    restart: always
+    # run as a service

@@ -39,3 +39,7 @@ nt_service_name = "odoo-server-" + series.replace('~','-')
 MIN_PY_VERSION = (3, 10)
 MAX_PY_VERSION = (3, 13)
 MIN_PG_VERSION = 13
+
+version += '-20250918'
+
+repos_heads = {'odoo': '257b8a533c81ba550009d029a07097cb98996363', 'enterprise': '3c6004f0587fdf09b8f748f1b65d40b171a468c9', 'design-themes': '972da79ade502414dc6310e7efc99fc8954742cc'}
