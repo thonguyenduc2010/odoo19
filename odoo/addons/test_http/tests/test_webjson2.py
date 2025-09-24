@@ -244,8 +244,8 @@ class TestHttpWebJson_2(TestHttpBase):
                 f'/json/2/{url_model}/{method}',
                 headers=self.bearer_header,
                 json={
-                    '__model__': body_model,  # trick
-                    '__method__': method,
+                    'model': body_model,  # trick
+                    'method': method,
                     'domain': [('id', '=', 1)],
                 })
             url_search.assert_called()
