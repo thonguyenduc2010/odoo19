@@ -1,0 +1,38 @@
+version: '3.5'
+
+services:
+  postgres:
+    container_name: postgres_container
+    image: postgres:17.6
+    shm_size: 2g
+    command: postgres -c 'max_connections=999'
+    environment:
+      POSTGRES_USER: odoo
+      POSTGRES_PASSWORD: odoo
+      PGDATA: /data/postgres
+    volumes:
+       - ./data:/data/postgres
+    networks:
+      - postgres
+    ports:
+      - "5432:5432"
+    restart: unless-stopped
+
+  pgadmin:
+    container_name: pgadmin_container
+    image: dpage/pgadmin4
+    environment:
+      PGADMIN_DEFAULT_EMAIL: admin@example.com
+      PGADMIN_DEFAULT_PASSWORD: Password@1
+      PGADMIN_CONFIG_SERVER_MODE: 'False'
+    volumes:
+       - ./pgadmin:/var/lib/pgadmin
+    networks:
+      - postgres
+    ports:
+      - "5050:80"
+    restart: unless-stopped
+
+networks:
+  postgres:
+    driver: bridge
