@@ -202,7 +202,7 @@ docker-compose logs -f odoo
 docker-compose logs --tail=100 odoo
 
 # System logs
-sudo journalctl -u odoo19 -f
+sudo journalctl -u odoo -f
 
 # Nginx logs
 sudo tail -f /var/log/nginx/odoo_access.log
@@ -320,16 +320,16 @@ sudo crontab -e
 # Thêm các jobs sau:
 
 # Backup database hàng ngày lúc 2:00 AM
-0 2 * * * /data/odoo/scripts/backup-db.sh >> /var/log/odoo19-backup.log 2>&1
+0 2 * * * /data/odoo/scripts/backup-db.sh >> /var/log/odoo-backup.log 2>&1
 
 # Health check mỗi 15 phút
-*/15 * * * * /data/odoo/scripts/health-check.sh >> /var/log/odoo19-health.log 2>&1
+*/15 * * * * /data/odoo/scripts/health-check.sh >> /var/log/odoo-health.log 2>&1
 
 # Log rotation hàng tuần
-0 3 * * 0 /data/odoo/scripts/rotate-logs.sh >> /var/log/odoo19-rotation.log 2>&1
+0 3 * * 0 /data/odoo/scripts/rotate-logs.sh >> /var/log/odoo-rotation.log 2>&1
 
 # Update code hàng tuần (chỉ nếu cần)
-# 0 4 * * 0 /data/odoo/scripts/update-code.sh >> /var/log/odoo19-update.log 2>&1
+# 0 4 * * 0 /data/odoo/scripts/update-code.sh >> /var/log/odoo-update.log 2>&1
 ```
 
 ## 7. EMERGENCY PROCEDURES
