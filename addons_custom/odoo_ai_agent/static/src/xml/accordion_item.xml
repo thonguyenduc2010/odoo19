@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="utf-8"?>
+                        
+<templates xml:space="preserve">    
+    <t t-name="accordion_item_field" class="">          
+
+        <div class="accordion-item" t-ref="plan_according_item_wrapper">
+            <h2 class="accordion-header" style="margin: 0px" id="flush-headingOne">
+                <button class="accordion-button" t-att-class="{'accordion-button-highlight': props.has_user_confirmation, 'collapsed': !props.data.final_step}" type="button" data-bs-toggle="collapse" t-att-data-bs-target="`#${ props.accordion_id }`" aria-expanded="false" aria-controls="flush-collapseOne">
+                <span class="accordion-button-icon">
+                    <i t-att-class="'fa ' + (props.has_user_confirmation ? 'fa-cog' : 'fa-list-alt')"></i>
+                </span>
+                <t t-esc="props.label" />
+                </button>
+            </h2>
+            <div t-att-id="props.accordion_id" class="accordion-collapse collapse" t-att-class="props.data.final_step ? 'transparent_bg show' : ''" aria-labelledby="flush-headingOne">
+                <div class="relative_container">
+                    <div class="btn acc-download pb-2" type="button" id="dropdownMenuButton" title="Options" data-bs-toggle="dropdown" aria-expanded="false">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" viewBox="0 0 256 256"><path d="M224,144v64a8,8,0,0,1-8,8H40a8,8,0,0,1-8-8V144a8,8,0,0,1,16,0v56H208V144a8,8,0,0,1,16,0Zm-101.66,5.66a8,8,0,0,0,11.32,0l40-40a8,8,0,0,0-11.32-11.32L136,124.69V32a8,8,0,0,0-16,0v92.69L93.66,98.34a8,8,0,0,0-11.32,11.32Z"></path></svg>
+                    </div>
+                </div>
+                <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="dropdownMenuButton">
+                    <li>
+                        <button class="btn dropdown-item" t-on-click="onClickDownloadAgentPDF">
+                            Download PDF
+                        </button>
+                    </li>
+                    <li t-if="props.data.step != 1">
+                        <button class="btn dropdown-item" t-on-click="onClickDownloadAgentExcel">
+                            Download Excel
+                        </button>
+                    </li>
+                </ul>
+                <div class="accordion-body" id="accordion-body">
+                    <!-- <t t-out="props.content"/> -->
+                    <t t-if="props.data.template_id == 'agent_template_001'">
+                        <t t-call="odoo_ai_agent.agent_template_001" t-props="props" />
+                    </t>
+                    <t t-if="props.data.template_id == 'agent_template_002'">
+                        <t t-call="odoo_ai_agent.agent_template_002" t-props="props" />
+                    </t>
+                    <t t-if="props.data.template_id == 'agent_template_003'">
+                        <t t-call="odoo_ai_agent.agent_template_003" t-props="props" />
+                    </t>
+                    <t t-else="">
+                        <t t-raw="props.content" t-if="props.content != false"/>
+                    </t>
+                    <div class="d-flex justify-content-end mt-2">
+                        <t t-set='count' t-value="0"/>
+                        <t t-foreach="props.buttons" t-as="button" t-key="button.id+'_'+button.title+'_'+count">
+                            <t t-set='count' t-value="count + 1"/>
+                            <ViewButton t-if="!evalInvisible(button.invisible, props.record)"
+                                    className="button.className"
+                                    clickParams="button.clickParams"
+                                    defaultRank="button.defaultRank"
+                                    disabled="button.disabled"
+                                    icon="button.icon"
+                                    record="props.record"
+                                    string="button.string"
+                                    title="button.title"
+                                    tabindex="editedRecord ? '-1' : '0'"
+                                    onClick="isX2Many and record.isNew ? displaySaveNotification.bind(this) : ''"
+                                />
+                        </t>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+    </t>
+    <t t-name="odoo_ai_agent.agent_template_001">
+        <div class="agent_template_001">
+        </div>
+    </t>
+
+    <t t-name="odoo_ai_agent.agent_template_002">
+        <div class="agent_template_002">
+        </div>
+    </t>
+
+    <t t-name="odoo_ai_agent.agent_template_003">
+        <div class="agent_template_003">
+        </div>
+    </t>
+
+</templates>

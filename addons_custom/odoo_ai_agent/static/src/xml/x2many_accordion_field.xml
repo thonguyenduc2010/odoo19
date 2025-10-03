@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<templates xml:space="preserve">
+    <t t-name="ai_agents.X2ManyAccordionField">
+        <t t-if="props.record.data[props.name] and props.record.data[props.name].records.length > 0">
+            <t t-foreach="props.record.data[props.name].records" t-as="item" t-key="item.id">
+                <!-- <AccordionItem plan_message_index="item.resId" accordion_id="'flush-collapseOne_'+item.id" label="item.data.title" content="item.data.text_response or item.data.text" item_id="item.id"
+                        message_id = "item.resId" data="item"/> -->
+                <AccordionItem has_user_confirmation="item.data[props.context.has_confirmation]" label="item.data[props.context.labelField]" accordion_id="'flush-collapseOne_'+item.id" content="item.data[props.context.contentField]" buttons="allButtons" record="item" data="item.data"/>
+            </t>
+        </t>
+    </t>
+</templates>

@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<templates xml:space="preserve">
+    <t t-name="ai_agents.AgentDashboard">
+        <div class="o_agent_dashboard">
+            <t t-set="title">Agent Dashboard</t>
+            <t t-set="icon">fa-robot</t>
+            <div class="o_agent_dashboard_content">
+                <ControlPanel display="controlPanelDisplay"/>
+                <div class="ai_agent_main_display">
+                    <section class="o_agent_dashboard_sidebar_section">
+                        <div class="sidebar_data">
+                            <!-- <t t-esc="agent_group[1].category_id"/> -->
+
+                            <t t-foreach="Object.keys(agent_group)" t-as="group" t-key="group">
+                                <div class="sidebar_group">
+                                    <h3><t t-esc="group"/> AGENTS</h3>
+                                    <t t-foreach="Object.keys(agent_group[group])" t-as="agentCat" t-key="agentCat">
+                                        <div class="agent_category">
+                                            <t t-esc="agent_group[group][agentCat].name"/>
+                                        </div>
+                                        <t t-foreach="agent_group[group][agentCat].items" t-as="agent" t-key="agent.id">
+                                            <div class="agent_items">
+                                                <div class="agent_nav_btn" t-att-data-record-id="agent.id" t-on-click="onClickAgent" t-if="(agent.status[1] != 'To Run')">
+                                                    <t t-esc="agent.name"/>
+                                                    <div style="height: fit-content;width: fit-content;" class="d-inline agent_status o_tag o_badge badge rounded-pill" t-att-class="'o_tag_' + agent.status[0]">
+                                                        <img src="/odoo_ai_agent/static/src/img/loader.gif" t-if="agent.status[1] == 'Running'" class="pe-2" style="height:18px" alt="loader"/>
+                                                        <t t-att-class="agent.status[1] == 'Running'?'fade-animation':''" t-esc="agent.status[1]"/>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </t>
+                                    </t>
+                                    <!-- <ul>
+                                        <t t-foreach="agent_group[group].items" t-as="agent" t-key="agent.id">
+                                            <div class="agent_nav_btn" t-att-data-record-id="agent.id" t-on-click="onClickAgent"><t t-esc="agent.name"/></div>
+                                        </t>
+                                    </ul> -->
+                                </div>
+                            </t>
+                        </div>
+                    </section>
+                    <section class="o_agent_dashboard_section">
+                        <div class="o_agent_dashboard_section_content" t-att-class="state.records.length &lt; 2 ? 'd-block' : ''">
+                            <!-- <Field name="description" label="Description" /> -->
+                            <!-- <Record t-if="state.activeAgent" resModel="recordInfo.model" fieldNames="['agent_response_history_step_ids']" resId="state.activeAgent" t-slot-scope="data" mode="'edit'">
+                                <Field name="'agent_response_history_step_ids'" record="data.record" class="'h-100'" wysiwygOptions="{}" isCollaborative="true"/>
+                            </Record> -->
+                            <t t-foreach="state.records" t-as="item" t-key="item[0]">
+                                <div class="agent_block" t-att-class="state.records.length &lt; 2 ? 'full_agent_view' : ''" t-if="item[1].length">
+                                    <div class="agent_title"><t t-esc="item[0]"/></div>
+                                    <div class="agent_item" t-att-class="!state.expanded ? 'agent_item_overflow' : ''">
+                                        <div class="agent_button_group">
+                                            <div class="left_buttons">
+                                                <div><span class="o_tag o_badge badge rounded-pill" t-att-class="'o_tag_' + item[2][0]">
+                                                    <img src="/odoo_ai_agent/static/src/img/loader.gif" t-if="item[2][1] == 'Running'" class="pe-2" style="height:18px" alt="loader"/>
+                                                    <t t-att-class="item[2][1] == 'Running'?'fade-animation':''" t-esc="item[2][1]"/></span>
+                                                </div>
+                                                <div t-if="item[6]"><i class="fa fa-clock-o pe-1" aria-hidden="true"> Last Run: </i><span t-esc="item[6]"/></div>
+                                                <!-- <button class="btn btn-secondary"><i class="fa fa-cog"></i> Action 2</button> -->
+                                            </div>
+                                            <div class="right_buttons">
+                                                <button class="btn btn-primary me-2" t-on-click="onRunNowButtonClick" t-att-data-agent-id="item[3]"><i class="fa fa-play pe-1"></i> Run</button>
+                                                <button class="btn btn-primary me-2" t-att-data-agent-id="item[3]" t-att-data-history-id="item[4]" id="dropdownMenuButton" title="Options" data-bs-toggle="dropdown" aria-expanded="false">
+                                                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" viewBox="0 0 256 256"><path d="M224,144v64a8,8,0,0,1-8,8H40a8,8,0,0,1-8-8V144a8,8,0,0,1,16,0v56H208V144a8,8,0,0,1,16,0Zm-101.66,5.66a8,8,0,0,0,11.32,0l40-40a8,8,0,0,0-11.32-11.32L136,124.69V32a8,8,0,0,0-16,0v92.69L93.66,98.34a8,8,0,0,0-11.32,11.32Z"></path></svg>
+                                                </button>
+                                                <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="dropdownMenuButton">
+                                                    <li>
+                                                        <button class="btn dropdown-item" t-att-data-history-id="item[4]" t-on-click="onClickDownloadAgentPDF">
+                                                            Download PDF
+                                                        </button>
+                                                    </li>
+                                                    <li>
+                                                        <button class="btn dropdown-item" t-att-data-history-id="item[4]" t-on-click="onClickDownloadAgentExcel">
+                                                            Download Excel
+                                                        </button>
+                                                    </li>
+                                                </ul>
+                                                <button class="btn btn-primary" t-on-click="onConfigureButtonClick" t-att-data-agent-id="item[3]"><i class="fa fa-cog"></i></button>
+                                                <button class="btn btn-primary ms-2" t-att-class="{'d-none': state.records.length &lt; 2}" t-on-click="onExpandButtonClick" t-att-data-agent-id="item[3]"><i class="fa fa-expand pe-1"></i></button>
+                                                <button class="btn btn-primary ms-2" t-att-class="{'d-none': !state.expanded}" t-on-click="onCollapseButtonClick" t-att-data-agent-id="item[3]"><i class="fa fa-compress pe-1"></i></button>
+                                            </div>
+                                        </div>
+                                        <t t-foreach="item[1]" t-as="step" t-key="step.id">
+                                            <AccordionItem has_user_confirmation="step.has_user_confirmation" label="step.title" accordion_id="'flush-collapseOne_'+step.id" content="step.text_response" buttons="allbuttons" record="step" data="step"/>
+                                        </t>
+                                    </div>
+                                </div>
+                            </t>
+                        </div>
+                    </section>
+                </div>
+            </div>
+        </div>
+    </t>
+</templates>

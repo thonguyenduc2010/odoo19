@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<t t-name="odoo_ai_agent.KanbanRenderer" t-inherit="web.KanbanRenderer" t-inherit-mode="extension" owl="1">
+    <xpath expr="//div[hasclass('o_kanban_renderer')]" position="inside">
+        <t t-if="!props.list.hasData and props.list.resModel === 'copilot.agent.dashboard'">
+            <div class="o_kanban_custom_no_data">
+                <div class="container">
+                    <div class="card purchase">
+                        <div class="icon">⚡</div>
+                        <h3>Procurement Agents</h3>
+                        <p>Automate procurement processes with intelligent purchasing agents</p>
+                        <a href="#" class="btn btn-available"> <i class="fa fa-shopping-cart pe-2" aria-hidden="true"></i>Buy Agents</a>
+                    </div>
+
+                    <div class="card warehouse">
+                        <div class="icon">⭐</div>
+                        <h3>Warehouse Agents</h3>
+                        <p>Optimize inventory levels and warehouse operations</p>
+                        <a href="#" class="btn btn-coming">Coming Soon</a>
+                    </div>
+
+                    <div class="card crm">
+                        <div class="icon">👥</div>
+                        <h3>CRM &amp; Sales Agents</h3>
+                        <p>Enhance customer relationships and boost sales performance</p>
+                        <a href="#" class="btn btn-coming">Coming Soon</a>
+                    </div>
+
+                    <div class="card accounting">
+                        <div class="icon">⚡</div>
+                        <h3>Accounting Agents</h3>
+                        <p>Streamline financial processes with precision and compliance</p>
+                        <a href="#" class="btn btn-available"><i class="fa fa-shopping-cart pe-2" aria-hidden="true"></i>Buy Agents</a>
+                    </div>
+
+                    <div class="card manufacturing">
+                        <div class="icon">⭐</div>
+                        <h3>Manufacturing Agents</h3>
+                        <p>Optimize production processes and quality control</p>
+                        <a href="#" class="btn btn-coming">Coming Soon</a>
+                    </div>
+
+                    <div class="card project">
+                        <div class="icon">👥</div>
+                        <h3>Project Agents</h3>
+                        <p>Manage projects with intelligent planning and execution</p>
+                        <a href="#" class="btn btn-coming">Coming Soon</a>
+                    </div>
+                </div>
+            </div>
+        </t>
+    </xpath>
+</t>

@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+
+    <record id="agent_response_history_step_form_view" model="ir.ui.view">
+        <field name="name">Agent Response History Step Form View</field>
+        <field name="model">agent.response.history.step</field>
+
+        <field name="arch" type="xml">
+            <form>
+                <sheet>
+                    <group>
+                        <group>
+                            <field name="sequence" invisible="1"/>
+                            <field name="agent_response_history_id" invisible="1"/>
+                            <field name="special_id" invisible="1"/>
+                            <field name="current_role" invisible="1"/>
+                            <field name="next_role" invisible="1"/>
+                            <field name="title"/>
+                            <field name="copilot_agent_id" options="{'no_open': True}"/>
+                            <field name="python_functions" style="width: 50rem !important;" groups="base.group_no_one"/>
+                            <field name="text_response" style="width: 50rem !important;" invisible="not text_response"/>
+                            <field name="final_step_text_response" style="width: 50rem !important;" invisible="not final_step_text_response"/>
+                            <field name="output_response" style="width: 50rem !important;" invisible="not output_response"/>
+                            <field name="final_step_output_response" style="width: 50rem !important;" invisible="not final_step_output_response"/>
+                            <field name="text" style="width: 50rem !important;"/>
+                            <field name="has_user_confirmation"/>
+                            <field name="full_response" style="width: 50rem !important;" invisible="1"/>
+                        </group>
+                        <group>
+                            <field name="max_step" invisible="1"/>
+                            <field name="step"/>
+                            <field name="final_step" groups="base.group_no_one"/>
+                        </group>
+                    </group>
+                    <notebook>
+                        <page name="object_reference" string="Object Reference" groups="base.group_no_one" invisible="final_step == False">
+                            <field name="ai_agent_object_reference_ids">
+                                <list>
+                                    <field name="sequence"/>
+                                    <field name="reference_id"/>
+                                    <field name="reference_name"/>
+                                </list>
+                            </field>
+                        </page>
+                    </notebook>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+
+    <record id="agent_response_history_step_tree_view" model="ir.ui.view">
+       <field name="name">Agent Response History Step Tree View</field>
+       <field name="model">agent.response.history.step</field>
+       <field name="arch" type="xml">
+           <list>
+               <field name="sequence" widget="handle"/>
+               <field name="title"/>
+               <field name="step"/>
+               <field name="agent_response_history_id"/>
+               <field name="response" />
+           </list>
+       </field>
+    </record>
+
+
+    <record id="action_agent_response_history_step" model="ir.actions.act_window">
+       <field name="name">Agent Response History Step</field>
+       <field name="res_model">agent.response.history.step</field>
+       <field name="view_mode">list,form</field>
+       <field name="help" type="html">
+           <p class="o_view_nocontent_smiling_face">
+               Agent Response History Step
+           </p>
+       </field>
+    </record>
+
+</odoo>

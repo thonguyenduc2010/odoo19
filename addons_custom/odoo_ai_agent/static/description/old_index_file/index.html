@@ -1,0 +1,1254 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <!-- Keep these in head as you described -->
+        <link href="https://fonts.googleapis.com" rel="preconnect">
+        <link crossorigin href="https://fonts.gstatic.com" rel="preconnect">
+        <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+        <link href="css/bootstrap.min.css" rel="stylesheet">
+        <title>AI Agents Hero</title>
+    </head>
+    <body style="margin:0;font-family: 'Inter', system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial;">
+        <!-- HERO SECTION -->
+        <section class="text-center text-white">
+            <div class="col-12">
+                <img src="image/hero_banner_image.png" alt="Banner Image" style="width: 100%;">
+            </div>
+        </section>
+        <!-- NAV-TAB SECTION -->
+		<section class="container py-5" style="max-width:1100px; margin: 0 auto;">
+            <div class="row shadow g-0 p-4" style="background-color:#f3f3f3;border-radius:0.8rem;">
+                <!-- LEFT: vertical nav -->
+                <div class="col-12 col-md-3" style="padding-right:16px;">
+                    <div aria-orientation="vertical" class="nav nav-pills flex-column h-100" id="v-pills-tab" role="tablist" style="gap:10px;">
+                        <a class="nav-link active w-100 p-0 mb-3 shadow" id="tab-purchase" data-bs-toggle="tab" href="#pane-purchase" role="tab" aria-controls="pane-purchase" aria-selected="true" style="display:block;border-radius:10px; height:80px; overflow:hidden; ">
+                            <div class="d-flex align-items-center bg-white" style="height:80px;padding:10px;border-radius:10px;">
+                                <div style="width:36px;height:36px;display:flex;align-items:center;justify-content:center;margin-right:12px;border-radius:8px;background-color:#eaf2ff;font-size:18px;">🛒</div>
+                                <div style="flex:1;min-width:0;">
+                                    <div style="font-family:'Inter',sans-serif;font-weight:600;font-size:15px;color:#2b3b4a;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;">Purchase</div>
+                                    <div style="font-size:12px;color:#6b7785;margin-top:4px;overflow:hidden;text-overflow:ellipsis;">Automate procurement processes</div>
+                                </div>
+                                <div style="color:#c4cbe0;margin-left:auto;font-size:18px;">›</div>
+                            </div>
+                        </a>
+                        <a class="nav-link w-100 p-0 mb-3 shadow" id="tab-warehousing" data-bs-toggle="tab" href="#pane-warehousing" role="tab" aria-controls="pane-warehousing" aria-selected="false" style="display:block;border-radius:10px; height:80px; overflow:hidden; ">
+                            <div class="d-flex align-items-center bg-white" style="height:80px;padding:10px;border-radius:10px;">
+                                <div style="width:36px;height:36px;display:flex;align-items:center;justify-content:center;margin-right:12px;border-radius:8px;background-color:#fff8ef;font-size:18px;">📦</div>
+                                <div style="flex:1;min-width:0;">
+                                    <div style="font-family:'Inter',sans-serif;font-weight:600;font-size:15px;color:#2b3b4a;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;">Warehousing</div>
+                                    <div style="font-size:12px;color:#6b7785;margin-top:4px;overflow:hidden;text-overflow:ellipsis;">Optimize stock &amp; fulfilment</div>
+                                </div>
+                                <div style="color:#c4cbe0;margin-left:auto;font-size:18px;">›</div>
+                            </div>
+                        </a>
+                        <a class="nav-link w-100 p-0 mb-3 shadow" id="tab-crm" data-bs-toggle="tab" href="#pane-crm" role="tab" aria-controls="pane-crm" aria-selected="false" style="display:block;border-radius:10px; height:80px; overflow:hidden; ">
+                            <div class="d-flex align-items-center bg-white" style="height:80px;padding:10px;border-radius:10px;">
+                                <div style="width:36px;height:36px;display:flex;align-items:center;justify-content:center;margin-right:12px;border-radius:8px;background-color:#fff4f0;font-size:18px;">👥</div>
+                                <div style="flex:1;min-width:0;">
+                                    <div style="font-family:'Inter',sans-serif;font-weight:600;font-size:15px;color:#2b3b4a;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;">CRM &amp; Sales</div>
+                                    <div style="font-size:12px;color:#6b7785;margin-top:4px;overflow:hidden;text-overflow:ellipsis;">Boost conversions &amp; automate follow-ups</div>
+                                </div>
+                                <div style="color:#c4cbe0;margin-left:auto;font-size:18px;">›</div>
+                            </div>
+                        </a>
+                        <a class="nav-link w-100 p-0 mb-3 shadow" id="tab-accounting" data-bs-toggle="tab" href="#pane-accounting" role="tab" aria-controls="pane-accounting" aria-selected="false" style="display:block;border-radius:10px; height:80px; overflow:hidden; ">
+                            <div class="d-flex align-items-center bg-white" style="height:80px;padding:10px;border-radius:10px;">
+                                <div style="width:36px;height:36px;display:flex;align-items:center;justify-content:center;margin-right:12px;border-radius:8px;background-color:#f7fff4;font-size:18px;">📑</div>
+                                <div style="flex:1;min-width:0;">
+                                    <div style="font-family:'Inter',sans-serif;font-weight:600;font-size:15px;color:#2b3b4a;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;">Accounting</div>
+                                    <div style="font-size:12px;color:#6b7785;margin-top:4px;overflow:hidden;text-overflow:ellipsis;">Reconciliations &amp; reports</div>
+                                </div>
+                                <div style="color:#c4cbe0;margin-left:auto;font-size:18px;">›</div>
+                            </div>
+                        </a>
+                        <a class="nav-link w-100 p-0 mb-3 shadow" id="tab-manufacturing" data-bs-toggle="tab" href="#pane-manufacturing" role="tab" aria-controls="pane-manufacturing" aria-selected="false" style="display:block;border-radius:10px; height:80px; overflow:hidden; ">
+                            <div class="d-flex align-items-center bg-white" style="height:80px;padding:10px;border-radius:10px;">
+                                <div style="width:36px;height:36px;display:flex;align-items:center;justify-content:center;margin-right:12px;border-radius:8px;background-color:#fff6f9;font-size:18px;">⚙️</div>
+                                <div style="flex:1;min-width:0;">
+                                    <div style="font-family:'Inter',sans-serif;font-weight:600;font-size:15px;color:#2b3b4a;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;">Manufacturing</div>
+                                    <div style="font-size:12px;color:#6b7785;margin-top:4px;overflow:hidden;text-overflow:ellipsis;">Improve production planning</div>
+                                </div>
+                                <div style="color:#c4cbe0;margin-left:auto;font-size:18px;">›</div>
+                            </div>
+                        </a>
+                        <a class="nav-link w-100 p-0 mb-3 shadow" id="tab-project" data-bs-toggle="tab" href="#pane-project" role="tab" aria-controls="pane-project" aria-selected="false" style="display:block;border-radius:10px; height:80px; overflow:hidden; ">
+                            <div class="d-flex align-items-center bg-white" style="height:80px;padding:10px;border-radius:10px;">
+                                <div style="width:36px;height:36px;display:flex;align-items:center;justify-content:center;margin-right:12px;border-radius:8px;background-color:#f0f7ff;font-size:18px;">📁</div>
+                                <div style="flex:1;min-width:0;">
+                                    <div style="font-family:'Inter',sans-serif;font-weight:600;font-size:15px;color:#2b3b4a;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;">Project</div>
+                                    <div style="font-size:12px;color:#6b7785;margin-top:4px;overflow:hidden;text-overflow:ellipsis;">Streamline delivery &amp; tasks</div>
+                                </div>
+                                <div style="color:#c4cbe0;margin-left:auto;font-size:18px;">›</div>
+                            </div>
+                        </a>
+                        <a class="nav-link w-100 p-0 mb-3 shadow" id="tab-hr" data-bs-toggle="tab" href="#pane-hr" role="tab" aria-controls="pane-hr" aria-selected="false" style="display:block;border-radius:10px; height:80px; overflow:hidden; ">
+                            <div class="d-flex align-items-center bg-white" style="height:80px;padding:10px;border-radius:10px;">
+                                <div style="width:36px;height:36px;display:flex;align-items:center;justify-content:center;margin-right:12px;border-radius:8px;background-color:#f9f7ff;font-size:18px;">🧑‍💼</div>
+                                <div style="flex:1;min-width:0;">
+                                    <div style="font-family:'Inter',sans-serif;font-weight:600;font-size:15px;color:#2b3b4a;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;">Human Resources</div>
+                                    <div style="font-size:12px;color:#6b7785;margin-top:4px;overflow:hidden;text-overflow:ellipsis;">Automate hiring &amp; workflows</div>
+                                </div>
+                                <div style="color:#c4cbe0;margin-left:auto;font-size:18px;">›</div>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+                <!-- RIGHT: tab content -->
+                <div class="col-12 col-md-9" style="padding-left:16px;">
+                    <div class="tab-content p-4 bg-white shadow" style="border-radius:8px; min-height:260px;">
+                        <!-- Purchase pane (active) -->
+                        <div class="tab-pane fade show active h-100" id="pane-purchase" role="tabpanel" aria-labelledby="tab-purchase">
+                            <div class="container">
+                                <div class="row">
+                                    <!-- Header -->
+                                    <div class="col-12 mb-4">
+                                        <div class="d-flex justify-content-between align-items-center">
+                                            <div class="d-flex align-items-center">
+                                                <span style="font-size: 32px; padding-right:20px" class="me-3">🛒</span>
+                                                <div>
+                                                    <h2 class="mb-1" style="color: #1f2937;">Procurement</h2>
+                                                    <p class="mb-0 text-muted">Automate procurement processes with intelligent purchasing agents</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <!-- Available Agents Column -->
+                                    <div class="col-md-6">
+                                        <h4 class="mb-4" style="color: #374151;">Available Agents</h4>
+                                        <!-- Agent Cards -->
+                                        <div class="mb-3">
+                                            <div class="card border-0 shadow" style="background-color: #e0e7ff;">
+                                                <div class="card-body p-3" >
+                                                    <h6 class="card-title mb-2" style="color: #3730a3;">Create PO For Next Month</h6>
+                                                    <p class="card-text small text-muted mb-0">Analyze past sales, forecast demand, and generate automated purchase orders</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="mb-3">
+                                            <div class="card border-0 shadow" style="background-color: #e0e7ff;">
+                                                <div class="card-body p-3" >
+                                                    <h6 class="card-title mb-2" style="color: #3730a3;">Vendor Lead Time Update</h6>
+                                                    <p class="card-text small text-muted mb-0">Update vendor lead times based on historical delivery patterns</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="mb-3">
+                                            <div class="card border-0 shadow" style="background-color: #e0e7ff;">
+                                                <div class="card-body p-3" >
+                                                    <h6 class="card-title mb-2" style="color: #3730a3;">Low Stock Alert</h6>
+                                                    <p class="card-text small text-muted mb-0">Calculate sales performance and alert for restocking via email</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="mb-3">
+                                            <div class="card border-0 shadow" style="background-color: #e0e7ff;">
+                                                <div class="card-body p-3" >
+                                                    <h6 class="card-title mb-2" style="color: #3730a3;">Slow Moving Inventory Analysis</h6>
+                                                    <p class="card-text small text-muted mb-0">Identify slow-moving products with email notifications</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="mb-3">
+                                            <div class="card border-0 shadow" style="background-color: #e0e7ff;">
+                                                <div class="card-body p-3" >
+                                                    <div>
+                                                        <h6 class="card-title mb-2" style="color: #3730a3;">Monitor Purchase Orders</h6>
+                                                        <p class="card-text small text-muted mb-0">Track purchase orders and proactively notify of needed changes</p>
+														<span class="badge rounded-pill px-2 py-1 mt-2" style="background-color: #fbbf24; color: #92400e; font-size: 11px;">Coming Soon</span>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <!-- Key Benefits Column -->
+                                    <div class="col-md-6">
+                                        <h4 class="mb-4" style="color: #374151;">Key Benefits</h4>
+                                        <!-- Benefit Items -->
+                                        <div class="mb-3">
+                                            <div class="d-flex align-items-start">
+                                                <div class="card border-0 shadow flex-fill" style="background-color: #d1fae5;">
+                                                    <div class="card-body p-3" >
+                                                        <p class="mb-0" style="color: #065f46;">Proactive inventory planning with demand forecasting</p>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="mb-3">
+                                            <div class="d-flex align-items-start">
+                                                <div class="card border-0 shadow flex-fill" style="background-color: #d1fae5;">
+                                                    <div class="card-body p-3" >
+                                                        <p class="mb-0" style="color: #065f46;">Automated email alerts for stock management</p>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="mb-3">
+                                            <div class="d-flex align-items-start">
+                                                <div class="card border-0 shadow flex-fill" style="background-color: #d1fae5;">
+                                                    <div class="card-body p-3" >
+                                                        <p class="mb-0" style="color: #065f46;">Historical delivery pattern analysis</p>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="mb-3">
+                                            <div class="d-flex align-items-start">
+                                                <div class="card border-0 shadow flex-fill" style="background-color: #d1fae5;">
+                                                    <div class="card-body p-3" >
+                                                        <p class="mb-0" style="color: #065f46;">Real-time purchase order monitoring</p>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Warehousing pane -->
+                        <div class="tab-pane fade show h-100" id="pane-warehousing" role="tabpanel" aria-labelledby="tab-warehousing">
+                            <div class="container">
+                                <div class="row">
+                                    <!-- Header -->
+                                    <div class="col-12 mb-4">
+                                        <div class="d-flex justify-content-between align-items-center">
+                                            <div class="d-flex align-items-center">
+                                                <span style="font-size: 32px; padding-right:20px" class="me-3">📦</span>
+                                                <div>
+                                                    <h2 class="mb-1" style="color: #1f2937;">Warehousing</h2>
+                                                    <p class="mb-0 text-muted">Optimize inventory levels and warehouse operations</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <!-- Available Agents Column -->
+                                    <div class="col-md-6">
+                                        <h4 class="mb-4" style="color: #374151;">Available Agents</h4>
+                                        <div class="mb-3">
+                                            <div class="card border-0 shadow" style="background-color: #d1fae5;">
+                                                <div class="card-body p-3" >
+                                                    <h6 class="card-title mb-2" style="color: #065f46;">Inventory Optimization</h6>
+                                                    <p class="card-text small text-muted mb-0">Analyze inventory data to determine optimal steps for reducing inventory costs</p>
+                                                    <span class="badge rounded-pill px-2 py-1 mt-2" style="background-color: #fbbf24; color: #92400e; font-size: 11px;">Coming Soon</span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="mb-3">
+                                            <div class="card border-0 shadow" style="background-color: #d1fae5;">
+                                                <div class="card-body p-3" >
+                                                    <h6 class="card-title mb-2" style="color: #065f46;">Slow Moving / Obsolete Inventory</h6>
+                                                    <p class="card-text small text-muted mb-0">Analyze aging data to identify slow-moving items with liquidation recommendations</p>
+                                                    <span class="badge rounded-pill px-2 py-1 mt-2" style="background-color: #fbbf24; color: #92400e; font-size: 11px;">Coming Soon</span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="mb-3">
+                                            <div class="card border-0 shadow" style="background-color: #d1fae5;">
+                                                <div class="card-body p-3" >
+                                                    <h6 class="card-title mb-2" style="color: #065f46;">Optimized Put-Away Location Assignment</h6>
+                                                    <p class="card-text small text-muted mb-0">Determine optimal storage locations based on product characteristics and retrieval frequency</p>
+                                                    <span class="badge rounded-pill px-2 py-1 mt-2" style="background-color: #fbbf24; color: #92400e; font-size: 11px;">Coming Soon</span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="mb-3">
+                                            <div class="card border-0 shadow" style="background-color: #d1fae5;">
+                                                <div class="card-body p-3" >
+                                                    <h6 class="card-title mb-2" style="color: #065f46;">Min - Max Rules Calculator</h6>
+                                                    <p class="card-text small text-muted mb-0">Calculate optimal minimum and maximum stock levels based on sales patterns</p>
+                                                    <span class="badge rounded-pill px-2 py-1 mt-2" style="background-color: #fbbf24; color: #92400e; font-size: 11px;">Coming Soon</span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="mb-3">
+                                            <div class="card border-0 shadow" style="background-color: #d1fae5;">
+                                                <div class="card-body p-3" >
+                                                    <h6 class="card-title mb-2" style="color: #065f46;">Inventory Audit</h6>
+                                                    <p class="card-text small text-muted mb-0">Identify potentially erroneous transactions and inventory discrepancies</p>
+                                                    <span class="badge rounded-pill px-2 py-1 mt-2" style="background-color: #fbbf24; color: #92400e; font-size: 11px;">Coming Soon</span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <!-- Key Benefits Column -->
+                                    <div class="col-md-6">
+                                        <h4 class="mb-4" style="color: #374151;">Key Benefits</h4>
+                                        <div class="mb-3">
+                                            <div class="d-flex align-items-start">
+                                                <div class="card border-0 shadow flex-fill" style="background-color: #d1fae5;">
+                                                    <div class="card-body p-3" >
+                                                        <p class="mb-0" style="color: #065f46;">Reduce inventory holding costs by 20%</p>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="mb-3">
+                                            <div class="d-flex align-items-start">
+                                                <div class="card border-0 shadow flex-fill" style="background-color: #d1fae5;">
+                                                    <div class="card-body p-3" >
+                                                        <p class="mb-0" style="color: #065f46;">Identify and liquidate obsolete inventory</p>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="mb-3">
+                                            <div class="d-flex align-items-start">
+                                                <div class="card border-0 shadow flex-fill" style="background-color: #d1fae5;">
+                                                    <div class="card-body p-3" >
+                                                        <p class="mb-0" style="color: #065f46;">Optimize warehouse space utilization</p>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="mb-3">
+                                            <div class="d-flex align-items-start">
+                                                <div class="card border-0 shadow flex-fill" style="background-color: #d1fae5;">
+                                                    <div class="card-body p-3" >
+                                                        <p class="mb-0" style="color: #065f46;">Maintain optimal stock levels automatically</p>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="mb-3">
+                                            <div class="d-flex align-items-start">
+                                                <div class="card border-0 shadow flex-fill" style="background-color: #d1fae5;">
+                                                    <div class="card-body p-3" >
+                                                        <p class="mb-0" style="color: #065f46;">Detect and prevent inventory errors</p>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- CRM pane -->
+                        <div class="tab-pane fade show h-100" id="pane-crm" role="tabpanel" aria-labelledby="tab-crm">
+                            <div class="container">
+                                <div class="row">
+                                    <!-- Header -->
+                                    <div class="col-12 mb-4">
+                                        <div class="d-flex justify-content-between align-items-center">
+                                            <div class="d-flex align-items-center">
+                                                <span style="font-size: 32px; padding-right:20px" class="me-3">👥</span>
+                                                <div>
+                                                    <h2 class="mb-1" style="color: #1f2937;">CRM & Sales</h2>
+                                                    <p class="mb-0 text-muted">Enhance customer relationships and boost sales performance</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <!-- Available Agents Column -->
+                                    <div class="col-md-6">
+                                        <h4 class="mb-4" style="color: #374151;">Available Agents</h4>
+                                        <div class="mb-3">
+                                            <div class="card border-0 shadow" style="background-color: #e9d5ff;">
+                                                <div class="card-body p-3" >
+                                                    <h6 class="card-title mb-2" style="color: #6b21a8;">Pricing Strategy</h6>
+                                                    <p class="card-text small text-muted mb-0">Recommend pricing strategies to improve sales with optimal profitability</p>
+                                                    <span class="badge rounded-pill px-2 py-1 mt-2" style="background-color: #fbbf24; color: #92400e; font-size: 11px;">Coming Soon</span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="mb-3">
+                                            <div class="card border-0 shadow" style="background-color: #e9d5ff;">
+                                                <div class="card-body p-3" >
+                                                    <h6 class="card-title mb-2" style="color: #6b21a8;">Sales Growth Recommendations</h6>
+                                                    <p class="card-text small text-muted mb-0">Identify patterns in selling channels, customers, products and suggest growth ideas</p>
+                                                    <span class="badge rounded-pill px-2 py-1 mt-2" style="background-color: #fbbf24; color: #92400e; font-size: 11px;">Coming Soon</span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="mb-3">
+                                            <div class="card border-0 shadow" style="background-color: #e9d5ff;">
+                                                <div class="card-body p-3" >
+                                                    <h6 class="card-title mb-2" style="color: #6b21a8;">Intelligent Product Recommendation</h6>
+                                                    <p class="card-text small text-muted mb-0">Identify which products/services to cross-sell and upsell to particular customers</p>
+                                                    <span class="badge rounded-pill px-2 py-1 mt-2" style="background-color: #fbbf24; color: #92400e; font-size: 11px;">Coming Soon</span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="mb-3">
+                                            <div class="card border-0 shadow" style="background-color: #e9d5ff;">
+                                                <div class="card-body p-3" >
+                                                    <h6 class="card-title mb-2" style="color: #6b21a8;">Competitor Analysis</h6>
+                                                    <p class="card-text small text-muted mb-0">Analyze competitors to determine price elasticity and customer trends for dynamic pricing</p>
+                                                    <span class="badge rounded-pill px-2 py-1 mt-2" style="background-color: #fbbf24; color: #92400e; font-size: 11px;">Coming Soon</span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <!-- Key Benefits Column -->
+                                    <div class="col-md-6">
+                                        <h4 class="mb-4" style="color: #374151;">Key Benefits</h4>
+                                        <div class="mb-3">
+                                            <div class="d-flex align-items-start">
+                                                <div class="card border-0 shadow flex-fill" style="background-color: #d1fae5;">
+                                                    <div class="card-body p-3" >
+                                                        <p class="mb-0" style="color: #065f46;">Optimize pricing for maximum profitability</p>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="mb-3">
+                                            <div class="d-flex align-items-start">
+                                                <div class="card border-0 shadow flex-fill" style="background-color: #d1fae5;">
+                                                    <div class="card-body p-3" >
+                                                        <p class="mb-0" style="color: #065f46;">Identify growth opportunities across channels</p>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="mb-3">
+                                            <div class="d-flex align-items-start">
+                                                <div class="card border-0 shadow flex-fill" style="background-color: #d1fae5;">
+                                                    <div class="card-body p-3" >
+                                                        <p class="mb-0" style="color: #065f46;">Increase revenue through intelligent recommendations</p>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="mb-3">
+                                            <div class="d-flex align-items-start">
+                                                <div class="card border-0 shadow flex-fill" style="background-color: #d1fae5;">
+                                                    <div class="card-body p-3" >
+                                                        <p class="mb-0" style="color: #065f46;">Stay competitive with dynamic pricing strategies</p>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Accounting pane -->
+                        <div class="tab-pane fade show h-100" id="pane-accounting" role="tabpanel" aria-labelledby="tab-accounting">
+                            <div class="container">
+                                <div class="row">
+                                    <!-- Header -->
+                                    <div class="col-12 mb-4">
+                                        <div class="d-flex justify-content-between align-items-center">
+                                            <div class="d-flex align-items-center">
+                                                <span style="font-size: 32px; padding-right:20px" class="me-3">🏛️</span>
+                                                <div>
+                                                    <h2 class="mb-1" style="color: #1f2937;">Accounting</h2>
+                                                    <p class="mb-0 text-muted">Streamline financial processes with precision and compliance</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <!-- Available Agents Column -->
+                                    <div class="col-md-6">
+                                        <h4 class="mb-4" style="color: #374151;">Available Agents</h4>
+                                        <div class="mb-3">
+                                            <div class="card border-0 shadow" style="background-color: #fef3c7;">
+                                                <div class="card-body p-3" >
+                                                    <h6 class="card-title mb-2" style="color: #92400e;">Bank Reconciliation</h6>
+                                                    <p class="card-text small text-muted mb-0">Automatically reconcile bank statements with your accounting records</p>
+                                                    <span class="badge rounded-pill px-2 py-1 mt-2" style="background-color: #fbbf24; color: #92400e; font-size: 11px;">Coming Soon</span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="mb-3">
+                                            <div class="card border-0 shadow" style="background-color: #fef3c7;">
+                                                <div class="card-body p-3" >
+                                                    <h6 class="card-title mb-2" style="color: #92400e;">Cash Flow Forecast</h6>
+                                                    <p class="card-text small text-muted mb-0">Create detailed cash flow forecasts based on different business scenarios</p>
+                                                    <span class="badge rounded-pill px-2 py-1 mt-2" style="background-color: #fbbf24; color: #92400e; font-size: 11px;">Coming Soon</span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="mb-3">
+                                            <div class="card border-0 shadow" style="background-color: #fef3c7;">
+                                                <div class="card-body p-3" >
+                                                    <h6 class="card-title mb-2" style="color: #92400e;">Identify Risky Receivables</h6>
+                                                    <p class="card-text small text-muted mb-0">Use various signals to identify which receivables are at risk of non-payment</p>
+                                                    <span class="badge rounded-pill px-2 py-1 mt-2" style="background-color: #fbbf24; color: #92400e; font-size: 11px;">Coming Soon</span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="mb-3">
+                                            <div class="card border-0 shadow" style="background-color: #fef3c7;">
+                                                <div class="card-body p-3" >
+                                                    <h6 class="card-title mb-2" style="color: #92400e;">Predict Profitability</h6>
+                                                    <p class="card-text small text-muted mb-0">Predict whether you will be profitable in the current quarter</p>
+                                                    <span class="badge rounded-pill px-2 py-1 mt-2" style="background-color: #fbbf24; color: #92400e; font-size: 11px;">Coming Soon</span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="mb-3">
+                                            <div class="card border-0 shadow" style="background-color: #fef3c7;">
+                                                <div class="card-body p-3" >
+                                                    <h6 class="card-title mb-2" style="color: #92400e;">Accounting Consistency Audit</h6>
+                                                    <p class="card-text small text-muted mb-0">Analyze various reports and identify discrepancies for consistency</p>
+                                                    <span class="badge rounded-pill px-2 py-1 mt-2" style="background-color: #fbbf24; color: #92400e; font-size: 11px;">Coming Soon</span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <!-- Key Benefits Column -->
+                                    <div class="col-md-6">
+                                        <h4 class="mb-4" style="color: #374151;">Key Benefits</h4>
+                                        <div class="mb-3">
+                                            <div class="d-flex align-items-start">
+                                                <div class="card border-0 shadow flex-fill" style="background-color: #d1fae5;">
+                                                    <div class="card-body p-3" >
+                                                        <p class="mb-0" style="color: #065f46;">Automate bank statement reconciliation</p>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="mb-3">
+                                            <div class="d-flex align-items-start">
+                                                <div class="card border-0 shadow flex-fill" style="background-color: #d1fae5;">
+                                                    <div class="card-body p-3" >
+                                                        <p class="mb-0" style="color: #065f46;">Create accurate cash flow forecasts with scenario planning</p>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="mb-3">
+                                            <div class="d-flex align-items-start">
+                                                <div class="card border-0 shadow flex-fill" style="background-color: #d1fae5;">
+                                                    <div class="card-body p-3" >
+                                                        <p class="mb-0" style="color: #065f46;">Identify at-risk receivables using multiple signals</p>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="mb-3">
+                                            <div class="d-flex align-items-start">
+                                                <div class="card border-0 shadow flex-fill" style="background-color: #d1fae5;">
+                                                    <div class="card-body p-3" >
+                                                        <p class="mb-0" style="color: #065f46;">Predict quarterly profitability with high accuracy</p>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="mb-3">
+                                            <div class="d-flex align-items-start">
+                                                <div class="card border-0 shadow flex-fill" style="background-color: #d1fae5;">
+                                                    <div class="card-body p-3" >
+                                                        <p class="mb-0" style="color: #065f46;">Ensure accounting consistency across all reports</p>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Manufacturing pane -->
+                        <div class="tab-pane fade show h-100" id="pane-manufacturing" role="tabpanel" aria-labelledby="tab-manufacturing">
+                            <div class="container">
+                                <div class="row">
+                                    <!-- Header -->
+                                    <div class="col-12 mb-4">
+                                        <div class="d-flex justify-content-between align-items-center">
+                                            <div class="d-flex align-items-center">
+                                                <span style="font-size: 32px; padding-right:20px" class="me-3">⚙️</span>
+                                                <div>
+                                                    <h2 class="mb-1" style="color: #1f2937;">Manufacturing</h2>
+                                                    <p class="mb-0 text-muted">Optimize production processes and quality control</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <!-- Available Agents Column -->
+                                    <div class="col-md-6">
+                                        <h4 class="mb-4" style="color: #374151;">Available Agents</h4>
+                                        <div class="mb-3">
+                                            <div class="card border-0 shadow" style="background-color: #fecaca;">
+                                                <div class="card-body p-3" >
+                                                    <h6 class="card-title mb-2" style="color: #991b1b;">Production Schedule Optimizer</h6>
+                                                    <p class="card-text small text-muted mb-0">Optimize production schedules to maximize efficiency and minimize costs</p>
+                                                    <span class="badge rounded-pill px-2 py-1 mt-2" style="background-color: #fbbf24; color: #92400e; font-size: 11px;">Coming Soon</span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="mb-3">
+                                            <div class="card border-0 shadow" style="background-color: #fecaca;">
+                                                <div class="card-body p-3" >
+                                                    <h6 class="card-title mb-2" style="color: #991b1b;">Quality Control Inspector</h6>
+                                                    <p class="card-text small text-muted mb-0">Automated quality inspection and defect detection using AI vision</p>
+                                                    <span class="badge rounded-pill px-2 py-1 mt-2" style="background-color: #fbbf24; color: #92400e; font-size: 11px;">Coming Soon</span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="mb-3">
+                                            <div class="card border-0 shadow" style="background-color: #fecaca;">
+                                                <div class="card-body p-3" >
+                                                    <h6 class="card-title mb-2" style="color: #991b1b;">Maintenance Predictor</h6>
+                                                    <p class="card-text small text-muted mb-0">Predict equipment maintenance needs to prevent unexpected downtime</p>
+                                                    <span class="badge rounded-pill px-2 py-1 mt-2" style="background-color: #fbbf24; color: #92400e; font-size: 11px;">Coming Soon</span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="mb-3">
+                                            <div class="card border-0 shadow" style="background-color: #fecaca;">
+                                                <div class="card-body p-3" >
+                                                    <h6 class="card-title mb-2" style="color: #991b1b;">Resource Allocation Planner</h6>
+                                                    <p class="card-text small text-muted mb-0">Optimize resource allocation across production lines and processes</p>
+                                                    <span class="badge rounded-pill px-2 py-1 mt-2" style="background-color: #fbbf24; color: #92400e; font-size: 11px;">Coming Soon</span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="mb-3">
+                                            <div class="card border-0 shadow" style="background-color: #fecaca;">
+                                                <div class="card-body p-3" >
+                                                    <h6 class="card-title mb-2" style="color: #991b1b;">Waste Reduction Specialist</h6>
+                                                    <p class="card-text small text-muted mb-0">Identify opportunities to reduce waste and improve material efficiency</p>
+                                                    <span class="badge rounded-pill px-2 py-1 mt-2" style="background-color: #fbbf24; color: #92400e; font-size: 11px;">Coming Soon</span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <!-- Key Benefits Column -->
+                                    <div class="col-md-6">
+                                        <h4 class="mb-4" style="color: #374151;">Key Benefits</h4>
+                                        <div class="mb-3">
+                                            <div class="d-flex align-items-start">
+                                                <div class="card border-0 shadow flex-fill" style="background-color: #d1fae5;">
+                                                    <div class="card-body p-3" >
+                                                        <p class="mb-0" style="color: #065f46;">Increase production efficiency by 25%</p>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="mb-3">
+                                            <div class="d-flex align-items-start">
+                                                <div class="card border-0 shadow flex-fill" style="background-color: #d1fae5;">
+                                                    <div class="card-body p-3" >
+                                                        <p class="mb-0" style="color: #065f46;">Reduce equipment downtime</p>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="mb-3">
+                                            <div class="d-flex align-items-start">
+                                                <div class="card border-0 shadow flex-fill" style="background-color: #d1fae5;">
+                                                    <div class="card-body p-3" >
+                                                        <p class="mb-0" style="color: #065f46;">Minimize waste and defects</p>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Project pane -->
+                        <div class="tab-pane fade show h-100" id="pane-project" role="tabpanel" aria-labelledby="tab-project">
+                            <div class="container">
+                                <div class="row">
+                                    <!-- Header -->
+                                    <div class="col-12 mb-4">
+                                        <div class="d-flex justify-content-between align-items-center">
+                                            <div class="d-flex align-items-center">
+                                                <span style="font-size: 32px; padding-right:20px" class="me-3">📁</span>
+                                                <div>
+                                                    <h2 class="mb-1" style="color: #1f2937;">Project</h2>
+                                                    <p class="mb-0 text-muted">Manage projects with intelligent planning and execution</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <!-- Available Agents Column -->
+                                    <div class="col-md-6">
+                                        <h4 class="mb-4" style="color: #374151;">Available Agents</h4>
+                                        <div class="mb-3">
+                                            <div class="card border-0 shadow" style="background-color: #e0e7ff;">
+                                                <div class="card-body p-3" >
+                                                    <h6 class="card-title mb-2" style="color: #3730a3;">Project Forecast</h6>
+                                                    <p class="card-text small text-muted mb-0">Forecast project completion times and predict potential overage amounts</p>
+                                                    <span class="badge rounded-pill px-2 py-1 mt-2" style="background-color: #fbbf24; color: #92400e; font-size: 11px;">Coming Soon</span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="mb-3">
+                                            <div class="card border-0 shadow" style="background-color: #e0e7ff;">
+                                                <div class="card-body p-3" >
+                                                    <h6 class="card-title mb-2" style="color: #3730a3;">Projects at Risk</h6>
+                                                    <p class="card-text small text-muted mb-0">Identify which projects are at risk of falling behind schedule</p>
+                                                    <span class="badge rounded-pill px-2 py-1 mt-2" style="background-color: #fbbf24; color: #92400e; font-size: 11px;">Coming Soon</span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="mb-3">
+                                            <div class="card border-0 shadow" style="background-color: #e0e7ff;">
+                                                <div class="card-body p-3" >
+                                                    <h6 class="card-title mb-2" style="color: #3730a3;">Resource Levelling</h6>
+                                                    <p class="card-text small text-muted mb-0">Optimize resource allocation across projects to ensure levelling and completion</p>
+                                                    <span class="badge rounded-pill px-2 py-1 mt-2" style="background-color: #fbbf24; color: #92400e; font-size: 11px;">Coming Soon</span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="mb-3">
+                                            <div class="card border-0 shadow" style="background-color: #e0e7ff;">
+                                                <div class="card-body p-3" >
+                                                    <h6 class="card-title mb-2" style="color: #3730a3;">Billing Forecast</h6>
+                                                    <p class="card-text small text-muted mb-0">Predict billing amounts for next month based on project forecasts</p>
+                                                    <span class="badge rounded-pill px-2 py-1 mt-2" style="background-color: #fbbf24; color: #92400e; font-size: 11px;">Coming Soon</span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <!-- Key Benefits Column -->
+                                    <div class="col-md-6">
+                                        <h4 class="mb-4" style="color: #374151;">Key Benefits</h4>
+                                        <div class="mb-3">
+                                            <div class="d-flex align-items-start">
+                                                <div class="card border-0 shadow flex-fill" style="background-color: #d1fae5;">
+                                                    <div class="card-body p-3" >
+                                                        <p class="mb-0" style="color: #065f46;">Accurate project completion forecasting</p>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="mb-3">
+                                            <div class="d-flex align-items-start">
+                                                <div class="card border-0 shadow flex-fill" style="background-color: #d1fae5;">
+                                                    <div class="card-body p-3" >
+                                                        <p class="mb-0" style="color: #065f46;">Early identification of at-risk projects</p>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="mb-3">
+                                            <div class="d-flex align-items-start">
+                                                <div class="card border-0 shadow flex-fill" style="background-color: #d1fae5;">
+                                                    <div class="card-body p-3" >
+                                                        <p class="mb-0" style="color: #065f46;">Optimal resource allocation across projects</p>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="mb-3">
+                                            <div class="d-flex align-items-start">
+                                                <div class="card border-0 shadow flex-fill" style="background-color: #d1fae5;">
+                                                    <div class="card-body p-3" >
+                                                        <p class="mb-0" style="color: #065f46;">Precise billing forecasts for cash flow planning</p>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- HR pane -->
+                        <div class="tab-pane fade show h-100" id="pane-hr" role="tabpanel" aria-labelledby="tab-hr">
+                            <div class="container">
+                                <div class="row">
+                                    <!-- Header -->
+                                    <div class="col-12 mb-4">
+                                        <div class="d-flex justify-content-between align-items-center">
+                                            <div class="d-flex align-items-center">
+                                                <span style="font-size: 32px; padding-right:20px" class="me-3">👥</span>
+                                                <div>
+                                                    <h2 class="mb-1" style="color: #1f2937;">Human Resources</h2>
+                                                    <p class="mb-0 text-muted">Transform human resources with intelligent workforce management</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <!-- Available Agents Column -->
+                                    <div class="col-md-6">
+                                        <h4 class="mb-4" style="color: #374151;">Available Agents</h4>
+                                        <div class="mb-3">
+                                            <div class="card border-0 shadow" style="background-color: #fce7f3;">
+                                                <div class="card-body p-3" >
+                                                    <h6 class="card-title mb-2" style="color: #be185d;">Talent Acquisition Specialist</h6>
+                                                    <p class="card-text small text-muted mb-0">Streamline recruitment process and identify top candidates efficiently</p>
+                                                    <span class="badge rounded-pill px-2 py-1 mt-2" style="background-color: #fbbf24; color: #92400e; font-size: 11px;">Coming Soon</span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="mb-3">
+                                            <div class="card border-0 shadow" style="background-color: #fce7f3;">
+                                                <div class="card-body p-3" >
+                                                    <h6 class="card-title mb-2" style="color: #be185d;">Performance Review Analyzer</h6>
+                                                    <p class="card-text small text-muted mb-0">Analyze employee performance data and provide actionable insights</p>
+                                                    <span class="badge rounded-pill px-2 py-1 mt-2" style="background-color: #fbbf24; color: #92400e; font-size: 11px;">Coming Soon</span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="mb-3">
+                                            <div class="card border-0 shadow" style="background-color: #fce7f3;">
+                                                <div class="card-body p-3" >
+                                                    <h6 class="card-title mb-2" style="color: #be185d;">Employee Engagement Monitor</h6>
+                                                    <p class="card-text small text-muted mb-0">Monitor employee satisfaction and engagement levels across teams</p>
+                                                    <span class="badge rounded-pill px-2 py-1 mt-2" style="background-color: #fbbf24; color: #92400e; font-size: 11px;">Coming Soon</span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="mb-3">
+                                            <div class="card border-0 shadow" style="background-color: #fce7f3;">
+                                                <div class="card-body p-3" >
+                                                    <h6 class="card-title mb-2" style="color: #be185d;">Training Needs Assessor</h6>
+                                                    <p class="card-text small text-muted mb-0">Identify skill gaps and recommend targeted training programs</p>
+                                                    <span class="badge rounded-pill px-2 py-1 mt-2" style="background-color: #fbbf24; color: #92400e; font-size: 11px;">Coming Soon</span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="mb-3">
+                                            <div class="card border-0 shadow" style="background-color: #fce7f3;">
+                                                <div class="card-body p-3" >
+                                                    <h6 class="card-title mb-2" style="color: #be185d;">Payroll Compliance Checker</h6>
+                                                    <p class="card-text small text-muted mb-0">Ensure payroll accuracy and compliance with labor regulations</p>
+                                                    <span class="badge rounded-pill px-2 py-1 mt-2" style="background-color: #fbbf24; color: #92400e; font-size: 11px;">Coming Soon</span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <!-- Key Benefits Column -->
+                                    <div class="col-md-6">
+                                        <h4 class="mb-4" style="color: #374151;">Key Benefits</h4>
+                                        <div class="mb-3">
+                                            <div class="d-flex align-items-start">
+                                                <div class="card border-0 shadow flex-fill" style="background-color: #d1fae5;">
+                                                    <div class="card-body p-3" >
+                                                        <p class="mb-0" style="color: #065f46;">Reduce time-to-hire by 40%</p>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="mb-3">
+                                            <div class="d-flex align-items-start">
+                                                <div class="card border-0 shadow flex-fill" style="background-color: #d1fae5;">
+                                                    <div class="card-body p-3" >
+                                                        <p class="mb-0" style="color: #065f46;">Improve employee satisfaction</p>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="mb-3">
+                                            <div class="d-flex align-items-start">
+                                                <div class="card border-0 shadow flex-fill" style="background-color: #d1fae5;">
+                                                    <div class="card-body p-3" >
+                                                        <p class="mb-0" style="color: #065f46;">Ensure HR compliance</p>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- .tab-content -->
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- SECTION: Streamlined AI Agents for Odoo — design matched to provided image (inline CSS only) -->
+        <section class="py-5" style="background-color:#f5f7f8;">
+            <div class="container-fluid" style="max-width: 1200px;background-color: white; box-shadow: 0 4px 15px #00000030;padding:40px 20px;border-radius:15px;">
+                <!-- Header Section -->
+                <div class="row mb-5">
+                    <div class="col-12 text-center">
+                        <h1 style="color: #2c3e50; font-size: 2.5rem; font-weight: 700; margin-bottom: 30px;"> Streamlined AI Agents for Odoo </h1>
+                    </div>
+                </div>
+                <!-- Main Content Section -->
+                <div class="row">
+                    <!-- Left Content -->
+                    <div class="col-lg-7 col-md-8 col-sm-12">
+                        <!-- Chatbot Agent Card -->
+                        <div style="border-radius: 12px; padding: 30px;">
+                            <!-- Header with Icon -->
+                            <div class="row mb-4">
+                                <div class="col-12">
+                                    <div style="display: flex; align-items: center; gap: 15px;">
+                                        <div style="font-size: 2.5rem;">🤖</div>
+                                        <h2 style="color: #2c3e50; font-size: 1.8rem; font-weight: 600; margin: 0;"> Chatbot Agent for Instant Customer Support </h2>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- Description -->
+                            <div class="row mb-4">
+                                <div class="col-12">
+                                    <p style="color: #666; font-size: 1.1rem; line-height: 1.6; margin: 0;"> The chatbot agent instantly responds to customer inquiries, resolves common issues, and directs complex queries to the right human agent. This significantly reduces response times and enhances customer satisfaction. </p>
+                                </div>
+                            </div>
+                            <!-- Features List -->
+                            <div class="row">
+                                <div class="col-12">
+                                    <!-- Feature 1 -->
+                                    <div class="row mb-3">
+                                        <div class="col-12">
+                                            <div style="display: flex; align-items: flex-start; gap: 12px;">
+                                                <div style="color: #28a745; font-size: 1.2rem; margin-top: 2px;">✓</div>
+                                                <span style="color: #333; font-size: 1rem; font-weight: 500;"> Automated lead qualification </span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <!-- Feature 2 -->
+                                    <div class="row mb-3">
+                                        <div class="col-12">
+                                            <div style="display: flex; align-items: flex-start; gap: 12px;">
+                                                <div style="color: #28a745; font-size: 1.2rem; margin-top: 2px;">✓</div>
+                                                <span style="color: #333; font-size: 1rem; font-weight: 500;"> 24/7 customer support </span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <!-- Feature 3 -->
+                                    <div class="row">
+                                        <div class="col-12">
+                                            <div style="display: flex; align-items: flex-start; gap: 12px;">
+                                                <div style="color: #28a745; font-size: 1.2rem; margin-top: 2px;">✓</div>
+                                                <span style="color: #333; font-size: 1rem; font-weight: 500;"> Seamless integration with Odoo CRM </span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Right Sidebar -->
+                    <div class="col-lg-5 col-md-4 col-sm-12">
+                        <!-- Preview Card -->
+                        <div style="background-color: transparent; padding: 25px; text-align: right;">
+                            <!-- Preview Header -->
+                            <div class="row">
+                                <div class="col-12">
+									<img class="shadow" src="image/Chatbot-Agent-UI-Preview.png" alt="Chatbot Agent UI Preview" style="width: 100%; cursor: pointer;">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- Watch Our AI Agents Transform Your Business SECTION -->
+		<section class="py-5">
+            <div class="row mt-5">
+                <div class="col-12">
+                    <!-- Section Header -->
+                    <div class="row mb-4">
+                        <div class="col-12 text-center">
+                            <h2 style="color: #2c3e50; font-size: 2.2rem; font-weight: 700; margin-bottom: 15px;"> Watch Our AI Agents Transform Your Business </h2>
+                            <p style="color: #666; font-size: 1.1rem; margin: 0;"> See our agents in action and learn how they can automate your workflow. </p>
+                        </div>
+                    </div>
+                    <!-- Video Thumbnail -->
+                    <div class="container mx-auto row">
+                        <div class="col-12">
+                            <div style="position: relative; text-align: center; cursor: pointer;">
+                                <img class="shadow" src="image/video-thumbnail.png" alt="AI Agents for Odoo Video" style="width: 100%; max-width: 100%; height: auto; border-radius: 12px; ">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- SECTION: How AI Agents Work (improved three cards) -->
+        <section class="py-5" style="background-color:#f5f7f8;">
+            <div class="container-fluid" style="max-width: 1200px;">
+                <!-- Section Header -->
+                <div class="row mb-5">
+                    <div class="col-12 text-center">
+                        <h2 style="color: #2c3e50; font-size: 2.2rem; font-weight: 700;"> How AI Agents Work </h2>
+                    </div>
+                </div>
+                <!-- Steps Content -->
+                <div class="row">
+                    <!-- Step 1 -->
+                    <div class="col-lg-4 col-md-4 col-sm-12 mb-4">
+                        <div style="text-align: center; padding: 20px;background-color:#ffffff; border-radius:15px;">
+                            <!-- Step Number -->
+                            <div class="row mb-3">
+                                <div class="col-12">
+                                    <div style="width: 40px; height: 40px; background-color: #e6e6fa; border-radius: 50%; display: flex;  margin: 0 auto; border: 2px solid #9370db;">
+                                        <span style="color: #9370db; font-weight: 600; font-size: 1.1rem; padding: 5px 13px;">1</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- Step Title -->
+                            <div class="row mb-3">
+                                <div class="col-12">
+                                    <h4 style="color: #2c3e50; font-size: 1.3rem; font-weight: 600; margin: 0;"> Configure Agent </h4>
+                                </div>
+                            </div>
+                            <!-- Step Description -->
+                            <div class="row">
+                                <div class="col-12">
+                                    <p style="color: #666; font-size: 1rem; line-height: 1.5; margin: 0;"> Define tasks and rules using an intuitive interface — no coding required. Use role-based settings to tailor behavior. </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Step 2 -->
+                    <div class="col-lg-4 col-md-4 col-sm-12 mb-4">
+                        <div style="text-align: center; padding: 20px;background-color:#ffffff; border-radius:15px;">
+                            <!-- Step Number -->
+                            <div class="row mb-3">
+                                <div class="col-12">
+                                    <div style="width: 40px; height: 40px; background-color: #e6e6fa; border-radius: 50%; display: flex;  margin: 0 auto; border: 2px solid #9370db;">
+                                        <span style="color: #9370db; font-weight: 600; font-size: 1.1rem; padding: 5px 13px;">2</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- Step Title -->
+                            <div class="row mb-3">
+                                <div class="col-12">
+                                    <h4 style="color: #2c3e50; font-size: 1.3rem; font-weight: 600; margin: 0;"> Automate Workflow </h4>
+                                </div>
+                            </div>
+                            <!-- Step Description -->
+                            <div class="row">
+                                <div class="col-12">
+                                    <p style="color: #666; font-size: 1rem; line-height: 1.5; margin: 0;"> The agent autonomously performs tasks, from data entry to customer service, freeing your team for higher-value work. </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Step 3 -->
+                    <div class="col-lg-4 col-md-4 col-sm-12 mb-4">
+                        <div style="text-align: center; padding: 20px;background-color:#ffffff; border-radius:15px;">
+                            <!-- Step Number -->
+                            <div class="row mb-3">
+                                <div class="col-12">
+                                    <div style="width: 40px; height: 40px; background-color: #e6e6fa; border-radius: 50%; display: flex;  margin: 0 auto; border: 2px solid #9370db;">
+                                        <span style="color: #9370db; font-weight: 600; font-size: 1.1rem; padding: 5px 13px;">3</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- Step Title -->
+                            <div class="row mb-3">
+                                <div class="col-12">
+                                    <h4 style="color: #2c3e50; font-size: 1.3rem; font-weight: 600; margin: 0;"> Analyze Performance </h4>
+                                </div>
+                            </div>
+                            <!-- Step Description -->
+                            <div class="row">
+                                <div class="col-12">
+                                    <p style="color: #666; font-size: 1rem; line-height: 1.5; margin: 0;"> Gain insights with real-time dashboards and performance reports to continuously optimize behavior and ROI. </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- Why Choose AI Agents for Odoo? SECTION -->
+		<section class="py-5">
+            <div class="container-fluid" style="max-width: 1200px;">
+                <!-- Section Header -->
+                <div class="row mb-5">
+                    <div class="col-12 text-center">
+                        <h2 style="color: #2c3e50; font-size: 2.2rem; font-weight: 700;"> Why Choose AI Agents for Odoo? </h2>
+                    </div>
+                </div>
+                <!-- Features Grid -->
+                <div class="row">
+                    <!-- Row 1 -->
+                    <!-- Feature 1 -->
+                    <div class="col-lg-4 col-md-6 col-sm-12 mb-4">
+                        <div style="background: white; border-radius: 12px; padding: 25px; box-shadow: 0 4px 15px #00000030; height: 100%;">
+                            <!-- Icon Badge -->
+                            <div class="row mb-3">
+                                <div class="col-12">
+                                    <div style="display: inline-flex; align-items: center; background-color: #e8f5e8; padding: 8px 12px; border-radius: 20px;">
+                                        <span style="color: #28a745; font-size: 1rem; margin-right: 8px;">💰</span>
+                                        <span style="color: #28a745; font-size: 0.9rem; font-weight: 500;">Native Odoo integration</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- Feature Title -->
+                            <div class="row mb-3">
+                                <div class="col-12">
+                                    <h4 style="color: #2c3e50; font-size: 1.3rem; font-weight: 600; margin: 0;"> Custom Built for Odoo Workflows </h4>
+                                </div>
+                            </div>
+                            <!-- Feature Description -->
+                            <div class="row">
+                                <div class="col-12">
+                                    <p style="color: #666; font-size: 1rem; line-height: 1.5; margin: 0;"> Purpose-built agents that understand Odoo data structures, business logic, and integration patterns for seamless operation. </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Feature 2 -->
+                    <div class="col-lg-4 col-md-6 col-sm-12 mb-4">
+                        <div style="background: white; border-radius: 12px; padding: 25px; box-shadow: 0 4px 15px #00000030; height: 100%;">
+                            <!-- Icon Badge -->
+                            <div class="row mb-3">
+                                <div class="col-12">
+                                    <div style="display: inline-flex; align-items: center; background-color: #e8f5e8; padding: 8px 12px; border-radius: 20px;">
+                                        <span style="color: #28a745; font-size: 1rem; margin-right: 8px;">🎯</span>
+                                        <span style="color: #28a745; font-size: 0.9rem; font-weight: 500;">Multi-criteria optimization</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- Feature Title -->
+                            <div class="row mb-3">
+                                <div class="col-12">
+                                    <h4 style="color: #2c3e50; font-size: 1.3rem; font-weight: 600; margin: 0;"> Advanced Decision Making </h4>
+                                </div>
+                            </div>
+                            <!-- Feature Description -->
+                            <div class="row">
+                                <div class="col-12">
+                                    <p style="color: #666; font-size: 1rem; line-height: 1.5; margin: 0;"> Sophisticated reasoning capabilities that evaluate multiple factors, constraints, and business rules to make optimal decisions. </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Feature 3 -->
+                    <div class="col-lg-4 col-md-6 col-sm-12 mb-4">
+                        <div style="background: white; border-radius: 12px; padding: 25px; box-shadow: 0 4px 15px #00000030; height: 100%;">
+                            <!-- Icon Badge -->
+                            <div class="row mb-3">
+                                <div class="col-12">
+                                    <div style="display: inline-flex; align-items: center; background-color: #e8f5e8; padding: 8px 12px; border-radius: 20px;">
+                                        <span style="color: #28a745; font-size: 1rem; margin-right: 8px;">📊</span>
+                                        <span style="color: #28a745; font-size: 0.9rem; font-weight: 500;">Real-time data integration</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- Feature Title -->
+                            <div class="row mb-3">
+                                <div class="col-12">
+                                    <h4 style="color: #2c3e50; font-size: 1.3rem; font-weight: 600; margin: 0;"> External Information Sources </h4>
+                                </div>
+                            </div>
+                            <!-- Feature Description -->
+                            <div class="row">
+                                <div class="col-12">
+                                    <p style="color: #666; font-size: 1rem; line-height: 1.5; margin: 0;"> Integrates real-time market data, supplier information, regulatory updates, and industry benchmarks for informed decisions. </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Row 2 -->
+                    <!-- Feature 4 -->
+                    <div class="col-lg-4 col-md-6 col-sm-12 mb-4">
+                        <div style="background: white; border-radius: 12px; padding: 25px; box-shadow: 0 4px 15px #00000030; height: 100%;">
+                            <!-- Icon Badge -->
+                            <div class="row mb-3">
+                                <div class="col-12">
+                                    <div style="display: inline-flex; align-items: center; background-color: #e8f5e8; padding: 8px 12px; border-radius: 20px;">
+                                        <span style="color: #28a745; font-size: 1rem; margin-right: 8px;">👁️</span>
+                                        <span style="color: #28a745; font-size: 0.9rem; font-weight: 500;">Full decision transparency</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- Feature Title -->
+                            <div class="row mb-3">
+                                <div class="col-12">
+                                    <h4 style="color: #2c3e50; font-size: 1.3rem; font-weight: 600; margin: 0;"> Interpretable Decision Insights </h4>
+                                </div>
+                            </div>
+                            <!-- Feature Description -->
+                            <div class="row">
+                                <div class="col-12">
+                                    <p style="color: #666; font-size: 1rem; line-height: 1.5; margin: 0;"> Transparent explanations of why decisions were made, including contributing factors and confidence levels for full auditability. </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Feature 5 -->
+                    <div class="col-lg-4 col-md-6 col-sm-12 mb-4">
+                        <div style="background: white; border-radius: 12px; padding: 25px; box-shadow: 0 4px 15px #00000030; height: 100%;">
+                            <!-- Icon Badge -->
+                            <div class="row mb-3">
+                                <div class="col-12">
+                                    <div style="display: inline-flex; align-items: center; background-color: #e8f5e8; padding: 8px 12px; border-radius: 20px;">
+                                        <span style="color: #28a745; font-size: 1rem; margin-right: 8px;">🕐</span>
+                                        <span style="color: #28a745; font-size: 0.9rem; font-weight: 500;">Round-the-clock operations</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- Feature Title -->
+                            <div class="row mb-3">
+                                <div class="col-12">
+                                    <h4 style="color: #2c3e50; font-size: 1.3rem; font-weight: 600; margin: 0;"> 24/7 Availability </h4>
+                                </div>
+                            </div>
+                            <!-- Feature Description -->
+                            <div class="row">
+                                <div class="col-12">
+                                    <p style="color: #666; font-size: 1rem; line-height: 1.5; margin: 0;"> AI agents work continuously in the background, handling tasks even when your team is offline. </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Feature 6 -->
+                    <div class="col-lg-4 col-md-6 col-sm-12 mb-4">
+                        <div style="background: white; border-radius: 12px; padding: 25px; box-shadow: 0 4px 15px #00000030; height: 100%;">
+                            <!-- Icon Badge -->
+                            <div class="row mb-3">
+                                <div class="col-12">
+                                    <div style="display: inline-flex; align-items: center; background-color: #e8f5e8; padding: 8px 12px; border-radius: 20px;">
+                                        <span style="color: #28a745; font-size: 1rem; margin-right: 8px;">🛡️</span>
+                                        <span style="color: #28a745; font-size: 0.9rem; font-weight: 500;">SOC 2 compliant</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- Feature Title -->
+                            <div class="row mb-3">
+                                <div class="col-12">
+                                    <h4 style="color: #2c3e50; font-size: 1.3rem; font-weight: 600; margin: 0;"> Enterprise Security </h4>
+                                </div>
+                            </div>
+                            <!-- Feature Description -->
+                            <div class="row">
+                                <div class="col-12">
+                                    <p style="color: #666; font-size: 1rem; line-height: 1.5; margin: 0;"> Built with enterprise-grade security and compliance standards for peace of mind. </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- SECTION: CTA — Ready to Automate -->
+		<section class="py-5" style="background-color:#f5f7f8;">
+			<div class="container-fluid" style="max-width: 1200px;">
+				<div class="row">
+					<div class="col-12">
+						<!-- CTA Card -->
+						<div class="shadow" style="background-color: #4c1d95; border-radius: 12px; padding: 60px 40px; text-align: center; color: white;">
+							<!-- Main Title -->
+							<div class="row mb-3">
+								<div class="col-12">
+									<h2 style="color: white; font-size: 2.5rem; font-weight: 700; margin: 0;"> Ready to Automate Your Business? </h2>
+								</div>
+							</div>
+							<!-- Subtitle -->
+							<div class="row mb-4">
+								<div class="col-12">
+									<p style="color: white; font-size: 1.2rem; margin: 0; opacity: 0.9;"> Join the future of Odoo with AI-powered automation. </p>
+								</div>
+							</div>
+							<!-- CTA Button -->
+							<div class="row">
+								<div class="col-12">
+									<button style="background-color: white; color: #7c3aed; border: none; padding: 15px 35px; font-size: 1.1rem; font-weight: 600; border-radius: 50px; cursor: pointer; box-shadow: 0 4px 15px #2d1b69;"> Get Started Now </button>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</section>
+        <script src="js/jquery.slim.min.js"></script>
+        <script src="js/popper.min.js"></script>
+        <script src="js/bootstrap.bundle.min.js"></script>
+    </body>
+</html>

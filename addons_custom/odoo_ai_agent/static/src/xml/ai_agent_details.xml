@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<template id="template" xml:space="preserve">
+
+    <t t-name="ai_agents.aiAgentDetailsButton">
+
+        <a t-on-click="onClick" class="btn btn-primary oe_kanban_action oe_kanban_action_button" t-attf-class="fa fa-gear"/>
+    </t>
+
+    <t t-name="ai_agents.aiAgentDetailsPopover">
+        <div class="overflow-y-auto d-flex flex-column flex-grow-1">
+            <div>
+                <div t-esc="props.record.data.name" class="p-2 text-center text-500 border-bottom fs-6"/>
+                <div class="p-2 text-400">
+                    <div class="text-muted m-2" style="text-align: justify; display: -webkit-box; -webkit-line-clamp: 5; -webkit-box-orient: vertical; overflow: hidden;">
+                        <span class="me-2">Description:</span><t t-esc="props.record.data.description"/>
+                    </div>
+                    <div class="m-2">
+                        <span class="text-muted me-4">Active:</span><input type="checkbox" t-att-checked="props.record.data.active" onclick="return false"/>
+                    </div>
+<!--                    <div class="m-2">-->
+<!--                        <span class="me-2">-->
+<!--                            <span class="text-muted me-2">Last Run:</span><t t-esc="props.last_run"/>-->
+<!--                        </span>-->
+<!--                        <button class="btn text-muted btn-secondary custom_agent_btn" t-on-click="props.onResultButtonClick">-->
+<!--                            <i class="fa fa-clock-o me-2"></i>Result-->
+<!--                        </button>-->
+<!--                    </div>-->
+                    <div class="m-2">
+                        <span class="text-muted">Run History:
+                            <button class="btn text-muted btn-secondary custom_agent_btn ms-2" t-on-click="props.onViewButtonClick">
+                                <i class="fa fa-clock-o me-2 custom_agent_btn"></i>View
+                            </button>
+                        </span>
+                    </div>
+                    <div class="m-2 d-flex justify-content-between align-items-center">
+                        <button class="btn btn-primary text-muted text-light custom_agent_btn me-4" t-on-click="props.onRunNowButtonClick">
+                            <i class="fa fa-clock-o me-2 custom_agent_btn"></i>Run Now
+                        </button>
+                        <a t-on-click="props.onConfigureButtonClick" class="btn btn-primary oe_kanban_action oe_kanban_action_button" t-attf-class="fa fa-cogs"/>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </t>
+    <t t-name="odoo_ai_agent.ExtraInfoTooltip">
+        <div class="o-tooltip--string" t-if="props.info">
+            <!-- show all recived data -->
+            <t t-esc="props.info"/>
+    
+            <br/>
+            <t t-if="props.link">
+                <a t-att-href="props.link" class="help_link" target="_blank">Learn more</a>
+            </t>
+        </div>
+    </t>
+    <t t-name="odoo_ai_agent.AiHelpTextButton">
+        <span class="fa fa-info-circle text-muted ms-1 extrainfo_icon o_tooltip_extra_info"
+            t-att-title=" ''"
+            style="cursor: pointer; pointer-events: auto !important; font-size: 12px; display: inline-block; width: 16px; height: 16px; line-height: 16px; text-align: center;"
+            t-on-mouseenter="onHelpIconClick"
+        />
+    </t>
+</template>

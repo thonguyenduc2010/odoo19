@@ -1,0 +1,186 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <record id="view_res_config_settings_odoo_ai_agent_form" model="ir.ui.view">
+	    <field name="name">res.config.settings.inherit.chat.bot.form</field>
+	    <field name="model">res.config.settings</field>
+        <field name="priority" eval="0"/>
+	    <field name="inherit_id" ref="base_setup.res_config_settings_view_form"/>
+	    <field name="arch" type="xml">
+	    	<xpath expr="//form" position="inside">
+                  <app string="AI Agents" data-string="odoo_ai_agent" name="odoo_ai_agent" logo="/odoo_ai_agent/static/description/icon.png">
+
+                     <div class="app_settings_block" data-string="Chat Bot Configurations" string="Chat Bot Settings" data-key="bista_chat_bot_connector">
+                        <h2>Copilot Configurations</h2>
+                        <div class="row mt16 o_settings_container" name="chatbot_setting_container"
+                             id="bista_chat_bot_connector">
+
+                            <div class="col-12 col-lg-6 o_setting_box" id="chat_bot_api_key">
+                                <div class="o_setting_right_pane">
+                                    <span class="o_form_label">AI Services Configuration</span>
+                                    <div class="content-group">
+
+                                        <div class="mt16">
+                                             <div style="display: flex; gap: 16px; width: 40rem!important;">
+                                                <label for="client_email" string="Email" class="col-2 col-lg-2"/>
+                                                    <div class="o_field_widget o_field_char" style="padding-left: 9px;width: 212px;">
+                                                        <field name="client_email" readonly="0" class="w-auto"/>
+                                                    </div>
+                                                    <div class="col-3 col-lg-3" style="margin-right: -2rem;" invisible="connection_status == 'Connected'">
+                                                        <button name="user_configure" type="object" class="btn btn-primary" style="margin-top: 0;" confirm="Confirm user configuration.">Configure</button>
+                                                    </div>
+                                            </div>
+                                        </div>
+
+                                        <div class="mt16">
+                                                <label for="client_key" string="Client Key" class="col-4 col-lg-4"/>
+                                                <div class="o_field_widget o_field_char">
+                                                    <field name="client_key" readonly="0" class="w-auto"/>
+                                                </div>
+                                        </div>
+                                        <div class="mt16">
+                                            <label for="client_secret" string="Client Secret" class="col-4 col-lg-4"/>
+                                                <div class="o_field_widget o_field_char">
+                                                    <field name="client_secret" password="1" readonly="0" class="w-auto"/>
+                                                </div>
+                                        </div>
+                                        <div class="mt16" style="display: flex; gap: 16px; width: 40rem!important;" invisible="not client_key or not client_secret">
+                                            <div class="col-2 col-lg-2">
+                                                <label for="connection_status" string="Status" />
+                                            </div>
+                                            <div class="col-4 col-lg-4" style="background: bisque;text-align: center; align-content: end;font-weight: bold;border-radius: 5px;" >
+                                                <field name="connection_status" invisible="0" readonly="1"/>
+                                            </div>
+                                            <div class="col-3 col-lg-3" style="margin-right: -2rem;">
+                                                <button name="get_connection" type="object" class="btn btn-primary" style="margin-top: 0;">Connection Test</button>
+                                            </div>
+                                        </div>
+
+                                        <div style="width: 36rem;font-size: medium; color: red; padding-top: 10px;" invisible="connection_status == 'Connected'">
+                                            <p> Click on "Get Client Key and Credentials" to collect Client Key &amp; Client Secret.
+                                                On Sign-up to Copilot server, Client Key will be automatically created and then
+                                                after creating Credential, Client Secret will be generated.
+                                            </p>
+                                        </div>
+                                        <div class="content-group mt16">
+<!--                                             <button name="view_documentation_pdf" type="object" string="View Documentation PDF" class="btn-link"/>-->
+                                            <a href="/copilot/static/description/Documentation_Bista_Chatbot.pdf" target="_blank">
+                                                View Documentation PDF
+                                            </a>
+                                        </div>
+                                        <div class="mt16" style="display: flex; gap: 16px;">
+                                            <button name="get_client_key" type="object" class="btn btn-primary" style="margin-top: 0;" invisible="connection_status == 'Connected'">Get Client Key and Credentials</button>
+                                        </div>
+                                    </div>
+<!--                                    <div class="content-group mt16">-->
+<!--                                        <div class="row">-->
+<!--                                            <label for="credit" string="Credit Balance" class="col-4 col-lg-4"/>-->
+<!--                                            <field name="credit" readonly="1" decoration-success="credit > 0" decoration-danger="credit == 0"/>-->
+<!--                                        </div>-->
+<!--                                    </div>-->
+<!--                                    <div class="content-group mt16">-->
+<!--                                        <div class="row">-->
+<!--                                            <label for="redirect_url" string="Redirect Url" class="col-3 col-lg-3"/>-->
+<!--                                            <field name="redirect_url" readonly="0"/>-->
+<!--                                        </div>-->
+<!--                                    </div>-->
+                                </div>
+                            </div>
+                        </div>
+                     </div>
+<!--                     <block title="Advanced Configurations" name="advanced_configuration_container">-->
+<!--                        <setting id="copilot_advanced_configuration_enable_web_search" title="Enabling this feature would use data specific to the query for processing" help="Enabling this feature would use data specific to the query for processing">-->
+<!--                            <field name="enable_web_search"/>-->
+<!--                            <div class="row mt-2" style="text-align: right;">-->
+<!--                                <div class="col ps-0">-->
+<!--                                    <a href="https://odoocopilot.ai/privacy-policy" target="_blank">Privacy Policy</a>-->
+<!--                                </div>-->
+<!--                            </div>-->
+<!--                        </setting>-->
+<!--                        <setting id="copilot_advanced_configuration_enable_adv_decision_making" title="Enabling this feature would use data specific to the query for processing in LLM" help="Enabling this feature would use data specific to the query for processing in LLM">-->
+<!--                            <field name="enable_adv_decision_making"/>-->
+<!--                            <div class="row mt-2" style="text-align: right;">-->
+<!--                                <div class="col ps-0">-->
+<!--                                    <a href="https://odoocopilot.ai/privacy-policy" target="_blank">Privacy Policy</a>-->
+<!--                                </div>-->
+<!--                            </div>-->
+<!--                        </setting>-->
+<!--                         <setting id="copilot_advanced_configuration_enable_custom_architecture" title="Enabling this feature would use data of custom architecture specific to the query for processing" help="Enabling this feature would use data of custom architecture specific to the query for processing">-->
+<!--                                <field name="enable_custom_architecture"/>-->
+<!--                                <div class="row mt-2" style="text-align: right;" invisible="not enable_custom_architecture">-->
+<!--                                    <div class="col ps-0">-->
+<!--                                        <button name="sync_database" type="object" class="btn btn-primary" style="margin-top: 0;" confirm="Confirm database synchronization. This operation could take a little while to complete."  >-->
+<!--                                            <i class="fa fa-refresh" aria-hidden="true"></i> Sync Database-->
+<!--                                        </button>-->
+<!--                                    </div>-->
+<!--                                </div>-->
+<!--                            </setting>-->
+<!--                     </block>-->
+                     <div class="app_settings_block" data-string="Chat Bot Configurations" string="Chat Bot Settings" data-key="bista_ai_agent">
+                        <h2>Account Configurations</h2>
+                        <div class="row mt16 o_settings_container" name="chatbot_setting_container"
+                             id="bista_chat_bot_connector">
+
+                            <div class="col-12 col-lg-6 o_setting_box" id="chat_bot_api_key">
+                                <div class="o_setting_right_pane">
+                                    <div class="content-group mt16" >
+                                        <div class="mt16" style="display: flex; gap: 16px; width: 40rem!important;">
+                                            <div class="col-2 col-lg-2">
+                                                 <label for="ai_agent_credit" string="Credit Balance" class="col-4 col-lg-4" />
+                                            </div>
+                                            <div class="col-1 col-lg-1">
+                                                <field name="ai_agent_credit" readonly="1" decoration-success="ai_agent_credit > 0" decoration-danger="ai_agent_credit == 0"/>
+                                            </div>
+                                            <div class="col-3 col-lg-3">
+                                                 <button name="buy_credit" type="object" class="btn btn-primary" style="margin-top: 0;">Buy Credit</button>
+                                            </div>
+                                        </div>
+
+                                    </div>
+                                    <div class="content-group">
+                                        <div class="mt16" style="display: flex; gap: 16px;">
+                                            <button name="goto_ai_dashboard" type="object" class="btn btn-primary" style="margin-top: 0;" invisible="connection_status != 'Connected'" >Manage Credentials</button>
+                                            <button name="get_ai_agent" type="object" class="btn btn-primary" style="margin-top: 0;" invisible="connection_status != 'Connected'">Get AI Agents</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                     </div>
+                     <div class="app_settings_block" data-string="Chat Bot Configurations" string="Chat Bot Settings" data-key="bista_chat_bot_connector">
+                        <h2>Business Summary</h2>
+                        <div class="row mt16 o_settings_container" name="chatbot_setting_container" id="bista_chat_bot_business_summary">
+                            <div class=" o_setting_box" id="chat_bot_api_key">
+                                <div class="o_setting_right_pane">
+                                    <div class="content-group mt16" >
+                                        <div class="mt16">
+                                            <div class="" >
+                                                <field name="business_summary" widget="text" style="width: 120%!important;" placeholder="Add Business Information and description"/>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                     </div>
+                  </app>
+            </xpath>
+        </field>
+    </record>
+
+    <record id="action_odoo_ai_agent_config_settings" model="ir.actions.act_window">
+        <field name="name">Settings</field>
+        <field name="res_model">res.config.settings</field>
+        <field name="view_mode">form</field>
+<!--        <field name="target">inline</field>-->
+        <field name="context">{'module' : 'odoo_ai_agent', 'bin_size': False}</field>
+    </record>
+
+<!--    <record id="action_copilot_frontend_config_settings" model="ir.actions.act_window">-->
+<!--        <field name="name">Settings</field>-->
+<!--        <field name="res_model">res.config.settings</field>-->
+<!--        <field name="view_mode">form</field>-->
+<!--        <field name="target">inline</field>-->
+<!--        <field name="context">{'module' : 'copilot', 'bin_size': False}</field>-->
+<!--    </record>-->
+
+</odoo>

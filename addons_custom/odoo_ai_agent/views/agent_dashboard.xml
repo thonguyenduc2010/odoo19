@@ -1,0 +1,244 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <record id="copilot_agent_dashboard_form_view" model="ir.ui.view">
+        <field name="name">copilot.agent.dashboardview.form</field>
+        <field name="model">copilot.agent.dashboard</field>
+        <field name="arch" type="xml">
+            <form>
+                <sheet>
+                    <header>
+                        <button name="action_open_product_wizard" string="Select Product" type="object" class="btn btn-secondary" invisible="agent_code != '007'" />
+                    </header>
+                    <div class="oe_title">
+                        <label for="name"/>
+                        <h1><field name="name" class="oe_inline" readonly="1"/></h1>
+                    </div>
+                    <group>
+                        <group>
+                            <field name="description" readonly="1"/>
+                        </group>
+                        <group>
+                            <field name="last_run" readonly="1"/>
+                            <field name="next_run" readonly="1"/>
+                            <field name="agent_code" readonly="1" invisible="1"/>
+                            <field name="agent_group" invisible="1"/>
+                            <field name="module_ids" widget="many2many_tags" options="{'no_create': True}" context="{'show_access': True}" readonly="1" invisible="1"/>
+<!--                            <field name="cost" readonly="1"/>-->
+                            <label for="cost" string="Cost" />
+                            <div>
+                                <field name="cost" class="oe_inline" />
+                                <span class="oe_inline">Credit</span>
+                            </div>
+                        </group>
+                        <group>
+                            <field name="sequence" />
+                            <field name="active" />
+                            <label for="execute_every" string="Execute Every"/>
+                            <div>
+                                <field name="execute_every" class="oe_inline" />
+                                <field name="execute_unit" class="oe_inline"/>
+                            </div>
+
+                        </group>
+
+                    </group>
+                    <notebook>
+                        <page string="Agent Responses">
+                            <field name="agent_response_history_ids">
+                                <list default_order="id desc" create="false" delete="false">
+                                    <field name="action_type"/>
+                                    <field name="run_time_of" />
+                                    <field name="description"/>
+                                    <field name="state"/>
+                                    <field name="action_state"/>
+                                   <button name="open_review_response"
+                                        string="Review"
+                                        type="object"
+                                        icon="fa-eye"
+                                        class="btn btn-primary"/>
+                                    <button name="excel_export"
+                                        string="Excel Export"
+                                        type="object"
+                                        icon="fa-eye"
+                                        class="btn btn-primary"/>
+                                    <button name="action_download_pdf"
+                                        string="PDF Export"
+                                        type="object"
+                                        icon="fa-eye"
+                                        class="btn btn-primary"/>
+                                </list>
+                            </field>
+                        </page>
+                        <page string="Model List" invisible="1">
+                            <field name="model_ids" widget="many2many_tags"/>
+                        </page>
+                    </notebook>
+                </sheet>
+                <footer>
+                    <button string="Save" type="object" name="action_save" class="btn-primary"/>
+                    <button string="Cancel" class="btn-secondary" special="cancel"/>
+                </footer>
+            </form>
+        </field>
+    </record>
+
+    <record id="copilot_agent_dashboard_kanban_view" model="ir.ui.view">
+       <field name="name">copilot.agent.dashboardview.kanban</field>
+       <field name="model">copilot.agent.dashboard</field>
+       <field name="arch" type="xml">
+           <kanban class="o_kanban_dashboard o_project_kanban o_emphasize_colors" can_open="false"
+            default_order="id desc" create="false" quick_create="false" group_create="false" group_delete="false" archivable="false" group_edit="false">
+                <field name="name" />
+                <field name="agent_group" />
+                <field name="description" />
+                <field name="last_run"/>
+                <field name="next_run"/>
+                <field name="active"/>
+                <field name="cost"/>
+                <field name="is_favorite"/>
+               <field name="icon_text" invisible="1"/>
+               <field name="icon_link" invisible="1"/>
+                <templates>
+                    <t t-name="card" class="row">
+                        <div style="margin-top:5px; margin-bottom:5px;">
+                            <div class="o_project_kanban_main d-flex align-items-baseline gap-1">
+                                <field name="is_favorite" widget="boolean_favorite" nolabel="1" force_save="1"/>
+                                <div class="o_kanban_card_content mw-100">
+                                    <div class="o_kanban_primary_left">
+                                        <div class="o_primary">
+                                            <div class="row oe_kanban_record_title">
+                                                <h3 class="col-9" t-att-title="record.name.value"><t t-esc="record.name.value"/></h3>
+                                                <div class="col-3 d-flex justify-content-end">
+                                                    <widget name="aiHelpTextButton"/>
+                                                </div>
+                                            </div>
+                                            <span class="" style="display: -webkit-box; -webkit-line-clamp: 4; -webkit-box-orient: vertical;overflow: hidden; margin-left: -20px; margin-bottom: 10px; margin-top: 10px;" t-if="record.description.value">
+                                                <p aria-label="Description" title="Description"><t t-esc="record.description.value"/></p>
+                                            </span>
+                                            <div class="d-flex">
+                                                <span class="pe-2 mr-2 d-inline" style="margin-left: -20px;">Active : </span>
+                                                <field name="active" widget="boolean_toggle" class="d-inline" nolabel="1" force_save="1" type='edit' options="{'editable': true}" colspan="1"/>
+                                            </div>
+                                            <div class="o_row">
+                                                <span class="pe-2 mr-2 d-inline" style="margin-left: -20px;">Status :</span>
+                                                <span t-att-class="'o_tag_' + record.status.raw_value" class="o_tag o_badge badge rounded-pill" style="--Tag-font-size: 0.75rem;font-weight: 500;">
+                                                    <img src="/odoo_ai_agent/static/src/img/loader.gif" t-if="record.status.value == 'Running'" class="pe-2" style="height:18px" alt="loader"/>
+                                                    <span t-att-class="record.status.value == 'Running'?'fade-animation':''">
+                                                        <field name="status" title="Status"/>
+                                                    </span>
+                                                </span>
+                                            </div>
+                                            <div t-if="record.last_run" class="o_row" style="margin-left: -20px;">
+                                                <span class="fa fa-clock-o me-2"/><span>Last Run : </span><field name="last_run"  title="Last Run"/>
+                                            </div>
+                                            <div t-if="record.next_run.raw_value" class="o_row" style="margin-left: -20px;">
+                                                <span class="fa fa-clock-o me-2 text-info"/><span class="text-info">Next Run : </span><field class="text-info" name="next_run"  title="Next Run"/>
+                                            </div>
+
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="o_kanban_record_bottom mt-3 d-flex justify-content-between align-items-center">
+                                <div class="oe_kanban_bottom_left">
+                                    <button type="object" class="btn btn-primary" name="open_last_response" string="Last Response" title="Click to Open Last Response"><i class="fa fa-eye pe-2"></i>Review</button>
+                                </div>
+
+                                <div class="o_row">
+                                    <span class="o_tag o_badge badge rounded-pill text-info"
+                                          t-att-title="'Per execution it will charge ' + (record.cost.value) + ' Credit'"
+                                          style="--Tag-font-size: 0.75rem; font-weight: 500; background-color: #017fa51f; transform: translateX(20px);">
+                                        Cost: <t t-esc="record.cost.value"/> Cr/Exc
+                                    </span>
+                                </div>
+
+                                <div class="oe_kanban_bottom_left" style="display: grid;">
+                                </div>
+                                <div class="oe_kanban_bottom_left" style="display: grid;">
+                                    <!-- <span class="fa fa-info-circle text-muted ms-1"
+                                          t-att-title="record.icon_text and record.icon_text.value or ''"
+                                          style="cursor: pointer; fontand-size: 12px; display: inline-block; width: 16px; height: 16px; line-height: 16px; text-align: center;">
+                                    </span> -->
+                                </div>
+                                <div class="oe_kanban_bottom_right">
+<!--                                    <button type="object" class="btn btn-primary" name="show_details" string="" title="Click to Show Detais"><i class="fa fa-gear"></i></button>-->
+                                    <widget name="agent_details"/>
+                                </div>
+                            </div>
+                        </div>
+                    </t>
+                </templates>
+            </kanban>
+       </field>
+    </record>
+
+
+    <record id="copilot_agent_dashboard_tree_view" model="ir.ui.view">
+       <field name="name">copilot.agent.dashboardview.tree</field>
+       <field name="model">copilot.agent.dashboard</field>
+       <field name="arch" type="xml">
+           <list>
+               <field name="name" />
+               <field name="agent_group" />
+               <field name="last_run"/>
+               <field name="next_run"/>
+               <field name="active"/>
+               <field name="category_id" invisible="1"/>
+           </list>
+       </field>
+    </record>
+
+    <record id="copilot_agent_dashboard_search_view" model="ir.ui.view">
+        <field name="name">copilot.agent.dashboard.view.search</field>
+        <field name="model">copilot.agent.dashboard</field>
+        <field name="arch" type="xml">
+            <search string="Search Agent Dashboard">
+                <field name="name"/>
+<!--                <group expand="1" string="Group by">-->
+                    <filter name="group_by_category" string="Category" context="{'group_by': 'category_id'}"/>
+<!--                </group>-->
+                <!-- Searchpanel for agent_group -->
+                <searchpanel>
+                    <field name="agent_group" icon="fa-filter" string="Agent Group" enable_counters="1"/>
+                </searchpanel>
+
+
+            </search>
+        </field>
+    </record>
+
+
+    <record id="action_copilot_agent_dashboard" model="ir.actions.act_window">
+       <field name="name">Agent Dashboard</field>
+       <field name="res_model">copilot.agent.dashboard</field>
+       <field name="view_mode">kanban,form</field>
+       <field name="context" eval="{'search_default_group_by_category': 1,'group_by': 'category_id'}"/>
+
+       <field name="help" type="html">
+           <p class="o_view_nocontent_smiling_face">
+               Agent Dashboard
+           </p>
+       </field>
+    </record>
+
+    <record id="action_copilot_agent_dashboard_purchase_agent" model="ir.actions.act_window">
+       <field name="name">Procurement Agent Dashboard</field>
+       <field name="res_model">copilot.agent.dashboard</field>
+       <field name="view_mode">kanban,form</field>
+       <field name="domain">[('agent_group', '=', 'procurement')]</field>
+       <field name="context" eval="{'search_default_group_by_category': 1}"/>
+       <field name="help" type="html">
+           <p class="o_view_nocontent_smiling_face">
+               Agent Dashboard
+           </p>
+       </field>
+    </record>
+
+    <record id="action_agent_dashboard" model="ir.actions.client">
+        <field name="name">Control Point</field>
+        <field name="res_model">copilot.agent.dashboard</field>
+        <field name="tag">ai_agent_dashboard</field>
+    </record>
+
+
+</odoo>

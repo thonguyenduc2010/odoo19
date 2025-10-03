@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <template id="chat_message_response_line_report_template">
+        <t t-call="web.basic_layout">
+             <div class="page" style="font-family: Arial, sans-serif; line-height: 1.5; display: flex; flex-direction: column;  justify-content: center; height: 100vh; margin: 20px;">
+
+                <div style="text-align: left;  margin-bottom: 30px; color: #333;">
+                    <div style="font-size: 23px; font-weight: bold;">
+                        Question: <t t-esc="custom_message" />
+                    </div>
+                    <div style="font-size: 12px;">
+                        Created at: <t t-esc="create_date" />
+                    </div>
+                    <div style="font-size: 12px;">
+                        User: <t t-esc="user.name" />
+                    </div>
+                </div>
+
+                <div style="font-size: 16px; font-weight: bold; color: #333; text-align: center; margin-bottom: 15px; padding: 3px; background-color: lightgray;  border-radius: 8px;">
+                    Title: <t t-raw="title" />
+                </div>
+<!--                <t t-if="text">-->
+<!--                    <div style="font-size: 14px; color: #555; padding: 10px; margin-bottom: 20px;  background-color: #E8F9FF;  border-radius: 8px;">-->
+<!--                        <t t-raw="text" />-->
+<!--                    </div>-->
+<!--                </t>-->
+                <t t-if="text_response">
+                    <div style="font-size: 14px;background-color: #E8F9FF; padding: 10px; margin-bottom: 20px; border-radius: 8px;">
+                        <t t-raw="text_response" />
+                    </div>
+                </t>
+            </div>
+        </t>
+    </template>
+    <data>
+        <record id="action_chat_message_response_line_model" model="ir.actions.report">
+            <field name="name">AI Agent Response Line Report</field>
+            <field name="model">agent.response.history.step</field>
+            <field name="report_type">qweb-pdf</field>
+            <field name="report_name">odoo_ai_agent.chat_message_response_line_report_template</field>
+            <field name="print_report_name">'%s Report' % object.name</field>
+        </record>
+    </data>
+</odoo>

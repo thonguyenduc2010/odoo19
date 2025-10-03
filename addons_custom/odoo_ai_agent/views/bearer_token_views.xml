@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+
+    <record id="odoo_ai_agent_configuration_bearer_token_active_inactive_search_filter_view" model="ir.ui.view">
+        <field name="name">odoo_ai_agent_configuration_bearer_token.active_inactive.search.view</field>
+        <field name="model">client.bearer.token</field>
+        <field name="arch" type="xml">
+            <search>
+                <field name="active"/>
+                <filter string="All (Active and Inactive)" name="all_active_inactive" domain="[('|'),('active', '=',True),('active', '=',False)]"/>
+            </search>
+        </field>
+    </record>
+
+    <record id="odoo_ai_agent_configuration_bearer_token_form_view" model="ir.ui.view">
+        <field name="name">odoo_ai_agent_configuration_bearer_token.form.view</field>
+        <field name="model">client.bearer.token</field>
+        <field name="arch" type="xml">
+            <form>
+                <sheet>
+                    <group>
+                        <group>
+                            <field name="user_id" widget="many2one_avatar_user"/>
+                            <field name="token"/>
+                            <field name="expiry"/>
+                        </group>
+                        <group>
+                            <field name="expiration"/>
+                            <field name="active" />
+                        </group>
+
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="odoo_ai_agent_configuration_bearer_token_tree_view" model="ir.ui.view">
+       <field name="name">odoo_ai_agent_configuration_bearer_token.view.tree</field>
+       <field name="model">client.bearer.token</field>
+       <field name="arch" type="xml">
+           <list>
+               <field name="user_id" widget="many2one_avatar_user"/>
+               <field name="token"/>
+               <field name="expiry" />
+               <field name="expiration" />
+               <field name="active" />
+               <field name="create_date" />
+           </list>
+       </field>
+    </record>
+
+
+    <record id="action_odoo_ai_agent_configuration_bearer_token" model="ir.actions.act_window">
+       <field name="name">Bearer Token</field>
+       <field name="res_model">client.bearer.token</field>
+       <field name="view_mode">list,form</field>
+       <field name="context">{'search_default_all_active_inactive': 1}</field>
+       <field name="help" type="html">
+           <p class="o_view_nocontent_smiling_face">
+               Generate Bearer Token
+           </p>
+       </field>
+    </record>
+
+
+    <menuitem id="odoo_ai_agent_configuration_bearer_token_parent_menu" name="Bearer Token" parent="base.menu_custom" sequence="5"/>
+    <menuitem action="action_odoo_ai_agent_configuration_bearer_token" id="odoo_ai_agent_configuration_bearer_token_child_menu" parent="odoo_ai_agent_configuration_bearer_token_parent_menu"/>
+</odoo>

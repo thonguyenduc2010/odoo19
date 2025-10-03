@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+
+    <menuitem name="AI Agents"
+          id="odoo_ai_agent_menu_root"
+          web_icon="odoo_ai_agent,static/description/icon.png"
+          action="action_copilot_agent_dashboard"/>
+
+    <menuitem id="ai_agents_dashboard_menu"
+        name="Dashboard"
+        parent="odoo_ai_agent_menu_root"
+        action="action_copilot_agent_dashboard"
+        sequence="1"/>
+
+    <menuitem id="odoo_ai_agent_configuration_menu"
+        name="Configuration"
+        parent="odoo_ai_agent_menu_root"
+        sequence="3">
+
+        <menuitem id="menu_ai_agent_message_log_settings"
+                name="Settings"
+                action="action_odoo_ai_agent_config_settings"
+                sequence="2"
+                groups="base.group_system"/>
+
+        <menuitem name="Agent Response History"
+                id="agent_response_history_menu_main"
+                action="action_agent_response_history"
+                sequence="3"
+                groups="base.group_no_one"/>
+
+        <menuitem name="Agent Response History Step"
+                id="agent_response_history_step_menu_main"
+                action="action_agent_response_history_step"
+                sequence="4"
+                groups="base.group_no_one"/>
+
+    </menuitem>
+
+   <menuitem id="ai_agents_custome_dashboard_menu"
+       name="Decision Console"
+       parent="odoo_ai_agent_menu_root"
+       action="action_agent_dashboard"
+       sequence="1"/>
+
+
+
+</odoo>
